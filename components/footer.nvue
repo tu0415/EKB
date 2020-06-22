@@ -1,0 +1,95 @@
+<template>
+	<view class="footer-tab">
+		<view class="uls flex">
+			<view class="item flex" v-for="(item,index) in listData" :key="index" @click="goLink(item.link)">
+				<image v-if="index != selectIndex" :src="item.url" alt="">
+					<image v-else :src="item.selectUrl" alt="">
+					<text :class="index == selectIndex ? 'curr':''">{{item.text}}</text>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		name: 'footer-tab',
+		props: ['selectIndex'],
+		data() {
+			return {
+				listData: [{
+						text: "首页",
+						url: "/static/footer/tab01.png",
+						selectUrl: "/static/footer/tab001.png",
+						link: "/pages/index/index"
+					},
+					{
+						text: "全部",
+						url: ("/static/footer/tab02.png"),
+						selectUrl: ("/static/footer/tab002.png"),
+						link: "/pages/all/index"
+					},
+					{
+						text: "夺宝揭晓",
+						url: ("/static/footer/tab03.png"),
+						selectUrl: ("/static/footer/tab003.png"),
+						link: "/pages/announce/index"
+					},
+					{
+						text: "购物车",
+						url: ("/static/footer/tab04.png"),
+						selectUrl: ("/static/footer/tab004.png"),
+						link: "/pages/shop/index"
+					},
+					{
+						text: "我的",
+						url: ("/static/footer/tab04.png"),
+						selectUrl: ("/static/footer/tab004.png"),
+						link: "/pages/user/index"
+					},
+				]
+			}
+		},
+		methods: {
+			goLink(value) {
+				uni.switchTab({
+					url: value
+				})
+			}
+		}
+	}
+</script>
+
+<style scoped lang="less">
+	.footer-tab {
+		height: 100rpx;
+		position: fixed;
+		bottom: 0rpx;
+		left: 0;
+		width: 100%;
+		z-index:99999;
+		.uls {
+			background-color: #F5F5F5;
+			height: 100%;
+
+			.item {
+				flex: 1;
+				flex-direction: column;
+				height: 100%;
+
+				image {
+					width: 44rpx;
+					height: 44rpx;
+				}
+
+				text {
+					margin-top: 8rpx;
+					font-size: 24rpx;
+				}
+
+				.curr {
+					color: #B5832D;
+				}
+			}
+		}
+	}
+</style>

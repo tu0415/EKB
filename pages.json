@@ -1,0 +1,83 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{"path": "pages/star/star","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/login/login","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/notice","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/index/index","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/index/staticEarnings","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/index/region","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/index/regionDetail","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/login/register","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/login/changePassword","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/login/changePaypassword","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/wallet/index","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/wallet/transfer","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/wallet/roll","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/wallet/shift","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/wallet/conversion","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/wallet/detail","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/zoology/index","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/zoology/shop","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/zoology/shopDetail","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/zoology/buy","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/zoology/place","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/zoology/shopType","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/zoology/shopList","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/zoology/managePay","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/zoology/manageBuy","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/index","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/share","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/noticeDetail","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/security","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/team","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/myOrder","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/address","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/addSite","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/editSite","style": {"navigationBarTitleText": ""}},
+		{"path": "pages/user/myEarnings","style": {"navigationBarTitleText": ""}}
+	    
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "JKC",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"navigationStyle": "custom",
+		"enablePullDownRefresh": false
+	},
+	"tabBar": {
+		"color": "#707881",
+		"selectedColor": "#30EC89",
+		"backgroundColor": "#031318",
+		// "fontSize": "22rpx",
+		// "iconWidth": "40rpx",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "/static/footer/tab01.png",
+				"selectedIconPath": "/static/footer/tab001.png"
+				},
+			{
+				"pagePath": "pages/wallet/index",
+				"text": "钱包",
+				"iconPath": "/static/footer/tab02.png",
+				"selectedIconPath": "/static/footer/tab002.png"
+				},
+			{
+				"pagePath": "pages/zoology/index",
+				"text": "生态",
+				"iconPath": "/static/footer/tab03.png",
+				"selectedIconPath": "/static/footer/tab003.png"
+			},
+			{
+				"pagePath": "pages/user/index",
+				"text": "我的",
+				"iconPath": "/static/footer/tab04.png",
+				"selectedIconPath": "/static/footer/tab004.png"
+			}
+			
+		]
+	}
+	
+}
