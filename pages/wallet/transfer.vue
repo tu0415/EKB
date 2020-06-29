@@ -132,23 +132,36 @@
 					card: this.smsCode,
 					bzId:this.id
 				}
-				this.$http.questToken(this.$API.wellet.transfer, 'post', parameter).then(res => {
-					if (res.code == 200) {
-						uni.showToast({title: res.msg,icon: 'none'});
-						setTimeout(()=>{uni.switchTab({
-							url:'/pages/index/index'
-						})},1000)
-						this.walletAddress= ''
-						this.password= ''
-						this.smsCode= ''
-						this.account= ''
-					} else {
-						uni.showToast({
-							title: res.msg,
-							icon: 'none'
-						});
-					}
-				})
+				if(this.id != 4) {
+					this.$http.questToken(this.$API.wellet.transfer, 'post', parameter).then(res => {
+						if (res.code == 200) {
+							uni.showToast({title: res.msg,icon: 'none'});
+							setTimeout(()=>{uni.switchTab({
+								url:'/pages/index/index'
+							})},1000)
+						} else {
+							uni.showToast({
+								title: res.msg,
+								icon: 'none'
+							});
+						}
+					})
+				} else {
+					this.$http.questToken(this.$API.wellet.zzJkfScMethod, 'post', parameter).then(res => {
+						if (res.code == 200) {
+							uni.showToast({title: res.msg,icon: 'none'});
+							setTimeout(()=>{uni.switchTab({
+								url:'/pages/index/index'
+							})},1000)
+						} else {
+							uni.showToast({
+								title: res.msg,
+								icon: 'none'
+							});
+						}
+					})
+				}
+				
 			},
 			
 			// getAsset() {

@@ -26,7 +26,7 @@
 				
 				let data = {
 					// #ifdef APP-PLUS
-					version: '1.0.2',
+					version: '1.0.6',
 					os: plus.os.name === 'iOS' ? 1 : 2,
 					// #endif
 				}
@@ -74,4 +74,5 @@
 	/*每个页面公共css */
 	@import './common/common.css';
 	@import './common/top.css';
+	@import './components/parse/parse.css';
 </style>

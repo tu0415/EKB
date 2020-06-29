@@ -1,5 +1,6 @@
 import Vue from 'vue'
-let URL = 'http://jkc.test.6n0z.cn' // 测试     
+// let URL = 'http://jkc.test.6n0z.cn' // 测试    
+let URL = 'http://jkc666.com' // 正式
 // 在非H5里编译
 // #ifndef H5
 const API = URL + '/api'

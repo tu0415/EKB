@@ -88,8 +88,8 @@ page {
 			background:rgba(23,59,55,1);
 			.shop-img {
 				border-radius:20rpx 20rpx 0px 0px;
-				width: 336rpx;
-				height: 336rpx;
+				width: 320rpx;
+				height: 320rpx;
 				
 			}
 		}

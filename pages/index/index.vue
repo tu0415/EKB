@@ -71,9 +71,9 @@
 							<image class="wh60 mr20" :src="item.img" mode=""></image>
 							<text class="fwbold">{{item.name}}</text>
 						</view>
-						<view class="cont flexdcolumn disFlex alend">
+						<view class="cont flexdcolumn disFlex ">
 							<text class="f30">￥{{item.price}}</text>
-							<text class="f22">${{item.MaxPrice}}</text>
+							<text class="f22" style="margin-left: 10rpx;">$&nbsp;{{item.MaxPrice}}</text>
 						</view>
 						<view class="rihgt">
 							<text v-if="item.zhangdie == 0" class="cFF4444 f30">+{{item.baifenbi}}%</text>
@@ -144,7 +144,8 @@
 				currencyList:[],
 				proportion:'',
 				usdtSXF:'',
-				jkcSXF:''
+				jkcSXF:'',
+				isZhuanJkc:''
 			}
 		},
 		
@@ -184,7 +185,18 @@
 			},
 			goTransfers(id) {
 				this.$refs.transfer.close()
-				this.pushPage('/pages/wallet/transfer?data=',{id:id},1)
+				if(id == 3) {
+					if(this.isZhuanJkc == 1) {
+						this.pushPage('/pages/wallet/transfer?data=',{id:id},1)
+					} else {
+						uni.showToast({
+							title:'暂未开放',
+							icon:'none'
+						})
+					}
+				} else {
+					this.pushPage('/pages/wallet/transfer?data=',{id:id},1)
+				}
 			},
 			goTransfer() {if(this.isZhuan == 1) {
 				this.currencyList = this.zhuanzhangBZ
@@ -224,6 +236,7 @@
 						this.proportion = res.data.duihuanbili
 						this.usdtSXF = res.data.usdtSXF
 						this.jkcSXF = res.data.jkcSXF
+						this.isZhuanJkc = res.data.isTrue.isJkfScZZ
 					} else {
 						uni.showToast({
 							title:res.resule,
