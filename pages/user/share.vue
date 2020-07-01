@@ -3,23 +3,24 @@
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
-		<image class="bg" src="/static/user/fx_bg@2x.png" mode=""></image>
-		<Back :txt="'我要分享'"></Back>
+		<image class="bg" src="/static/user/fx_bg.png" mode=""></image>
+		<Back :txt="'我要分享'" :styleStr='"color:#fff"' :imgurl="'/static/user/back.png'"></Back>
 		<view class="count flexdcolumn flexAI pr">
 			<image class="wh170 logo" src="/static/login/logo.png" mode=""></image>
-			<text class="f50 fwbold ">邀请好友，奖励无上限！</text>
-			<text class="f26 invite">邀请码</text>
-			<text class="f50 fwbold c00FFBA">{{invite}}</text>
+			<text class="f50 fwbold cfff" style="font-family:FZJianZhi-M23S;">邀请好友，奖励无上限！</text>
+			<text class="f30 invite cfff">邀请码</text>
+			<text class="f50 fwbold cfff">{{invite}}</text>
+			<text class="f28 cfff mt40 mb20">扫描二维码免费注册</text>
 			<view class=" code">
 				<tki-qrcode cid="qrcode" ref="qrcode" :val="qrcode" onval :size="338" loadMake :showLoading="false" @result="result" />
 			</view>
-			<text class="f28">扫描二维码免费注册</text>
+			
 			<view class="flex">
-				<view class="btn bg00FFBA br10 flex c021E34 f26 mr40" @click="copy">
+				<view class="btn bgcfff br10 flex c021E34 f26 mr40" @click="copy">
 					复制邀请码
 				</view>
-				<view class="btn bg00FFBA br10 flex c021E34 f26 " @click="save">
-					保存图片
+				<view class="btn bgcfff br10 flex c021E34 f26 " @click="save">
+					保存分享海报
 				</view>
 							
 			</view>
@@ -151,7 +152,7 @@
 
 		.btn {
 			margin-top: 80rpx;
-			padding: 20rpx;
+			padding: 20rpx 30rpx;
 		}
 	}
 

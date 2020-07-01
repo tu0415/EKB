@@ -5,17 +5,17 @@
 		</view>
 		<Back :txt="'我的团队'"></Back>
 		<view class="count bg-linear br10 flex  f26 flexdcolumn">
-			<view class="flex mb20" style="width: 100%;">
+			<view class="flex mb20 cfff" style="width: 100%;">
 				<!-- <view class="flex1 flex">
 					<image class="vip wh60  flex" :src="'/static/user/v' + ulever + '.png'" mode=""></image>
 				</view> -->
-				<text class=" flex1 flex fwbold f30">{{performance}}</text>
-				<text class=" flex1 flex fwbold f30">{{teamNum}}</text>
+				<text class=" flex1 flex fwbold f40">{{performance}}</text>
+				<text class=" flex1 flex fwbold f40">{{teamNum}}</text>
 			</view>
 			<view class="flex" style="width: 100%;">
 				<!-- <text class="f30 flex1 flex f26">我的等级</text> -->
-				<text class=" flex1 flex f26 ">团队业绩</text>
-				<text class=" flex1 flex f26 ">推荐用户</text>
+				<text class=" flex1 flex f26 cfff">团队业绩</text>
+				<text class=" flex1 flex f26 cfff">推荐用户</text>
 			</view>
 			
 		</view>

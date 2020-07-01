@@ -1,11 +1,11 @@
 <template>
-	<view class="register">
+	<view class="roll">
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
 		<Back :txt="'提币'"></Back>
 		<view class="cont">
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">提币地址</text>
 				<input type="text" class="flex1 f28" v-model.trim="walletAddress" placeholder="请输入提币地址" />
 			</view>
@@ -17,29 +17,29 @@
 					<view class="item" v-for="(item,index) in list" :key="index" @click="dropDown(item)">{{item.name}}</view>
 				</view>
 			</view> -->
-			<view class="f28 bg062B37 br10 item flexAI mt20" >
+			<view class="f28 bgcfff br10 item flexAI mt20" >
 				<text class="flexAI" style="width: 160rpx;">提币数量</text>
 				<input class="f28" type="number" v-model.trim="account" placeholder="请输入提币数量" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexJC mt20" style="padding-right:20rpx;">
+			<view class="f28 bgcfff br10 item flexJC mt20" style="padding-right:20rpx;">
 				<view class="flexAI">
 					<text class="flexAI" style="width: 160rpx;">到账数量</text>
 					<input class="f28 " type="number" v-model.trim="getNum" placeholder="" />
 				</view>
 				<text class="flexAI opacity5" style="justify-content: flex-end;">手续费{{service}}%</text>
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI" style="width: 160rpx;">支付密码</text>
 				<input class="f28" type="password" v-model.trim="password" placeholder="请输入支付密码" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20" style="padding-right: 10rpx;">
+			<view class="f28 bgcfff br10 item flexAI mt20" style="padding-right: 10rpx;">
 				<text class="flexAI" style="width: 160rpx;">短信验证</text>
 				<input class="f28" type="text" v-model.trim="smsCode" placeholder="请输入验证码" />
 				<text class="flex c00FFBA" v-if="!sendTime" @click="getCode">发送验证码</text>
 				<text class="flex c00FFBA" v-else >{{time}}s重新获取</text>
 			</view>
 			<view class="btn-box" >
-				<button class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60" :disabled="disabled" @click="getTransform">
+				<button class="btn f36 c021E34 bg00FFBA cfff flex br45 h90 mt60" :disabled="disabled" @click="getTransform">
 					确定提币
 				</button>
 			</view>
@@ -243,7 +243,7 @@
 
 <style scoped lang="less">
 	page {
-		.register {
+		.roll {
 			.cont {
 				padding: 0 30rpx;
 

@@ -1,8 +1,8 @@
 <template>
 	<view class="back">
 		<view class="header">
-			<image src="/static/login/back.png" alt="" @click="back">
-				<text class="flex text">{{txt}}</text>
+			<image :src="imgurl" alt="" @click="back">
+				<text class="flex text" :style="styleStr">{{txt}}</text>
 				<view class="right f14 black">
 					<slot name="right"></slot>
 				</view>
@@ -19,6 +19,12 @@
 			},
 			rightCont: {
 				type: String
+			},
+			styleStr:{
+				type: String
+			},
+			imgurl:{
+			   default:require('../static/login/back.png')
 			}
 		},
 		methods: {
@@ -44,7 +50,7 @@
 
 			.text {
 				font-size: 36rpx;
-				color: #fff;
+				color: #333333;
 				height: 100%;
 			}
 

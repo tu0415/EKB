@@ -1,5 +1,5 @@
 <template>
-	<view class="notice">
+	<view class="notice ">
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
@@ -8,12 +8,12 @@
 		</view>
 		<view class="list">
 			<view class="list-box">
-				<view class="item bg062B37 br10 disJcsbAc mb20" v-for="(item,index) in list" :key='index'  @click="pushPage('/pages/user/noticeDetail?data=',{id:item.article_id},1)" >
+				<view class="item bgcfff br10 disJcsbAc mb20" v-for="(item,index) in list" :key='index'  @click="pushPage('/pages/user/noticeDetail?data=',{id:item.article_id},1)" >
 					<view class="item-left disFlex flexdcolumn">
 						<text class="f30 text ellipsis mb10">{{item.title}}</text>
 						<text class="f24 cfff5">{{item.add_time}}</text>
 					</view>
-					<image class="wh40" src="/static/user/into@3x.png" mode=""></image>
+					<image class="wh40" src="/static/index/in.png" mode=""></image>
 				</view>
 			</view> 
 		</view>
@@ -81,7 +81,7 @@
 			left: 0;
 			width: 100%;
 			height: 96rpx;
-			background-color: #041D25;
+			// background-color: #041D25;
 			z-index: 10;
 		}
 		.list {

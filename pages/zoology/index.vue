@@ -1,10 +1,10 @@
 <template>
-	<view class="index bg041D25 h100">
+	<view class="index  h100 bgcfff">
 		<view class="index-box">
 			<view class="banner">
-				<image class="wh100" src="/static/zoology/st_bg@2x.png" mode=""></image>
+				<image class="wh100" src="/static/zoology/st_bg.png" mode=""></image>
 			</view>
-			<view class="list disFlex flexWrap bg062B37 br20 pr">
+			<view class="list disFlex flexWrap  br60 pr bgcfff pt20">
 				<!-- <navigator class="flex  br10 item flexdcolumn" v-for="(itme,i) in list" :key='i' url="/pages/zoology/shop">
 					<image class="wh48 mb20" :src="item.img" mode=""></image>
 					<text class="f28">{{item.name}}</text>
@@ -72,18 +72,18 @@
 <style scoped lang="less">
 	page {
 		height: 100%;
-		background-color: #041D25;
 		.index {
+			height: 100%;
 			.index-box {
 				.banner {
 					height: 550rpx;
 				}
 			}
 			.list {
-				margin: -160rpx 28rpx 0 32rpx;
+				margin: -160rpx 0 0 0rpx;
 				z-index: 11;
 				.item {
-					width: 226rpx;
+					width: 33.33%;
 					height: 226rpx;
 					margin-bottom: 5rpx;
 				}

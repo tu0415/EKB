@@ -1,7 +1,7 @@
 <template>
-	<view class=" h100 bg041D25">
-		<view class="status_bar bg041D25"><view class="top-view bg041D25"></view></view>
-		<view class="tops bg041D25">
+	<view class=" h100 ">
+		<view class="status_bar "><view class="top-view "></view></view>
+		<view class="tops ">
 			<Back :txt="'我的收益'"></Back>
 			<view class="tab mb20">
 				<view class="flex">
@@ -16,7 +16,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="list bg062B37 br20 ml30 mr30">
+		<view class="list  br20 ml30 mr30">
 			<view class="list-item disJcsbAc bdbfff1" v-for="(item,i) in list" :key='i'>
 				<view class="disFlex flexdcolumn">
 					<text class="f28">{{item.type}}</text>
@@ -37,7 +37,7 @@ import Back from '@/components/back.vue';
 export default {
 	data() {
 		return {
-			tabIndex: 0,
+			tabIndex: 1,
 			page: 1,
 			list: [],
 			finish: false,
@@ -76,7 +76,7 @@ export default {
 					this.list = this.list.concat(res.data)
 				} else {
 					uni.showToast({
-						title:res.resule,
+						title:res.msg,
 						icon:'none'
 					})
 				}
@@ -103,12 +103,11 @@ page {
 	.tab {
 		.item {
 			height: 80rpx;
-			color: #ffffff;
 			opacity: 0.5;
 			text {
 				width: 50rpx;
 				height: 6rpx;
-				background: #041d25;
+				background: #f1f1f1;
 				border-radius: 3rpx;
 				bottom: 0;
 				left: 50%;
@@ -116,10 +115,10 @@ page {
 			}
 		}
 		.item.active {
-			color: #30ec89;
+			color: #333333;
 			opacity: 1;
 			text {
-				background: #30ec89;
+				background: #FE701A;
 			}
 		}
 	}

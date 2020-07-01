@@ -5,15 +5,15 @@
 		</view>
 		<Back :txt="'注册'"></Back>
 		<view class="cont">
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">手机号</text>
 				<input type="number" class="f28" value="" v-model.trim="phone" placeholder="请输入手机号" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">帐号</text>
 				<input class="f28 " type="text" v-model.trim="account" placeholder="请设置帐号" />
 			</view>
-			<view class="f28 bg062B37 br10 item disJcsb mt20" style="padding-right: 10rpx;" >
+			<view class="f28 bgcfff br10 item disJcsb mt20" style="padding-right: 10rpx;" >
 				<view class="flexAI">
 					<text class="flexAI">验证码</text>
 					<input class="f28" type="number" v-model.trim="code" placeholder="请输入验证码" />
@@ -22,28 +22,28 @@
 				<text class="flex c00FFBA" v-if="!sendTime" @click="getCode">发送验证码</text>
 				<text class="flex c00FFBA" v-else >{{time}}s重新获取</text>
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">登录密码</text>
 				<input class="f28" type="password" maxlength="16" v-model.trim="password" placeholder="请设置登录密码" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">确认密码</text>
 				<input class="f28" type="password" maxlength="16" v-model.trim="passwords" placeholder="请重新输入登录密码" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">支付密码</text>
 				<input class="f28" type="password" maxlength="6" @input="onKeyInput($event,1)" password v-model.trim="paycode" placeholder="请设置支付密码" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">确认密码</text>
 				<input class="f28" type="password" maxlength="6" @input="onKeyInput($event,2)" password v-model.trim="paycodes" placeholder="请重新输入支付密码" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">推荐人</text>
 				<input class="f28" type="text" v-model.trim="referrer" placeholder="请输入推荐人号码" />
 			</view>
 			<view class="btn-box" @click="getRegister">
-				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60">
+				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60 cfff">
 					注册
 				</view>
 			</view>
@@ -98,8 +98,9 @@
 					});
 					return false;
 				}
+				this.send()
 				this.$http.quest(this.$API.login.code, "post", {tel: this.phone,type:2}).then(res => {
-					this.send()
+					
 					if(res.code == 200) {
 						uni.showToast({
 							title: res.msg,

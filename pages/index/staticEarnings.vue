@@ -1,5 +1,5 @@
 <template>
-	<view class="index">
+	<view class="staticEarnings">
 		<view class="status_bar"><view class="top-view"></view></view>
 		<Back :txt="'投资记录'"></Back>
 		<view class="index-cont">
@@ -76,7 +76,7 @@ export default {
 
 <style scoped lang="less">
 page {
-	.index {
+	.staticEarnings {
 		.index-cont {
 			padding: 30rpx;
 			.card {

@@ -3,28 +3,34 @@
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
-		<image class="logo-bg" src="/static/login/login_bg.png" mode=""></image>
-		<view class="cont pr">
+		<!-- <image class="logo-bg" src="/static/login/login_bg.png" mode=""></image> -->
+		
+		<view class="cont pr bgcfff">
+			<view class="login-top">
+				<image class="" style="height: 400rpx;width: 100%;" src="/static/login/dl_bg.png" mode=""></image>
+			</view>
 			<view class="logo-cont">
 				<view class="logo m0 mt10">
 					<image class="wh100" src="/static/login/logo.png" mode=""></image>
+					
 				</view>
+				<text class="f38 font-bold cfff mt20 flex">康美星</text>
 				<view class="login-box f30 ">
-					<view class="flexAI item-input bdbfff">
+					<view class="flexAI item-input bdde5">
 						<text class="flexAI">手机号</text>
 						<input type="number" v-model.trim="phone" value="" />
 					</view>
-					<view class="disJcsbAc item-input bdbfff pr">
+					<view class="disJcsbAc item-input bdde5 pr">
 						<view class="flexAI" style="height: 100%;">
 							<text class="flexAI">选择账号</text>
 							<input type="text" v-model.trim="account" value="" disabled/>
 						</view>
 						<image class="wh60 ml20" src="/static/login/down.png" @click="getAccount" mode=""></image>
-						<view class="select pb bg052B37" v-if="select" >
+						<view class="select pb bg052B37" style="background-color: #E5E5E5;" v-if="select" >
 							<view v-for="(item,index) in list" :key="index" @click="dropDown(item)">{{item.user_name}}</view>
 						</view>
 					</view>
-					<view class="disJcsbAc item-input bdbfff">
+					<view class="disJcsbAc item-input bdde5">
 						<view class="flexAI" style="height: 100%;">
 							<text class="flexAI">密码</text>
 							<input type="password"  v-if="see" v-model.trim="password" />
@@ -34,7 +40,7 @@
 						<image class="wh60 ml20" @click="seeEvt" v-else src="/static/login/see-no.png" mode=""></image>
 					</view>
 				</view>
-				<view class="btn f36 c021E34 bg00FFBA flex br45" @click="login">
+				<view class="btn f36 c021E34 bg00FFBA flex br45 cfff" @click="login">
 					登录
 				</view>
 				<view class="f28 flex" @click="goPassword">
@@ -191,7 +197,7 @@
 					margin: 0 auto;
 					position: absolute;
 					left: 50%;
-					top: 10%;
+					top: 5%;
 					// #ifdef APP-PLUS
 					margin-top: 100rpx;
 					// #endif
@@ -203,7 +209,7 @@
 					.login-box {
 						margin-top: 100rpx;
 						.item-input {
-							height: 100rpx;
+							height: 120rpx;
 							text {
 								height: 100%;
 								width: 150rpx;

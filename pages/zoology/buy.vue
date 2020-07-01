@@ -1,7 +1,7 @@
 <template>
-	<view class=" h100 bg041D25">
-		<view class="status_bar bg041D25"><view class="top-view bg041D25"></view></view>
-		<view class="tops bg041D25">
+	<view class=" h100 ">
+		<view class="status_bar "><view class="top-view "></view></view>
+		<view class="tops " style="background-color: #F1F1F1;">
 			<Back :txt="'商品详情'"></Back>
 		</view>
 		<view class="count">
@@ -37,8 +37,8 @@
 				</view>
 			</view>
 		</view>
-		<view class="bg041D25 flex" style="width: 100%;position: fixed;height: 120rpx;bottom: 0;left: 0;" >
-			<view class="buy-box flex br45 h90 bgFF3C3C f32" @click="buy">
+		<view class="bgf1 flex" style="width: 100%;position: fixed;height: 120rpx;bottom: 0;left: 0;" >
+			<view class="buy-box flex br45 h90 bgFF3C3C f32 cfff" @click="buy">
 				立即购买
 			</view>
 		</view>
@@ -66,7 +66,7 @@
 						<image class="wh48" src="/static/zoology/shop.png" mode=""></image>
 						<text class="f28 c999">商城</text>
 					</view>
-					<view  @click="goPlace"  class="flex br45 h90 bgFF3C3C f32 flex1">
+					<view  @click="goPlace"  class="flex br45 h90 bgFF3C3C f32 flex1 cfff">
 						立即购买
 					</view>
 				</view>

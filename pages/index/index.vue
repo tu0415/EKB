@@ -1,21 +1,21 @@
 <template>
-	<view class="index">
+	<view class="index bgcfff">
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
-		<view class="index-count">
-			<view class="uni-padding-wrap swiper-box">
-				<view class="page-section swiper">
-					<view class="page-section-spacing">
-						<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :circular="true" :interval="interval"
-						 :duration="duration">
-							<swiper-item class="swiper-box" v-for="(item,index) in limg" :key="index">
-								<image class="wh100" :src="item.img" mode=""></image>
-							</swiper-item>
-						</swiper>
-					</view>
+		<view class="uni-padding-wrap swiper-box">
+			<view class="page-section swiper">
+				<view class="page-section-spacing">
+					<swiper class="swiper" style="height: 400rpx;" :indicator-dots="indicatorDots" :autoplay="autoplay" :circular="true" :interval="interval"
+					 :duration="duration">
+						<swiper-item class="swiper-box" v-for="(item,index) in limg" :key="index">
+							<image class="wh100" :src="item.img" mode=""></image>
+						</swiper-item>
+					</swiper>
 				</view>
 			</view>
+		</view>
+		<view class="index-count bgcfff">
 			<view class="example-body flexAI mt10 mb10" >
 				<image class="wh40" src="/static/login/gg.png" mode=""></image>
 				<view class="uni-padding-wrap swiper-box f26" style="width: 100%;height: 60rpx;margin-left: 10rpx;">
@@ -31,91 +31,32 @@
 					</view>
 				</view>
 			</view>
-			<view class="wallet-box flex mt60 mb50 ">
-				<view url="/pages/wallet/shift" @click="goShift" class=" flex flexdcolumn flex1">
-					<image class="wh84" src="/static/index/cz@2x.png" mode=""></image>
-					<text class="f30 mt30">充值</text>
-				</view>
-				<view url="/pages/wallet/roll" @click="goRoll" class=" flex flexdcolumn flex1">
-					<image class="wh84" src="/static/index/tb@2x.png" mode=""></image>
-					<text class="f30 mt30">提币</text>
-				</view>
-				<view url="/pages/wallet/transfer" @click="goTransfer" class=" flex flexdcolumn flex1">
-					<image class="wh84" src="/static/index/zz@2x.png" mode=""></image>
-					<text class="f30 mt30">转账</text>
-				</view>
-				<view url="/pages/wallet/conversion" @click="goConversion" class=" flex flexdcolumn flex1">
-					<image class="wh84" src="/static/index/dh_sy.png" mode=""></image>
-					<text class="f30 mt30">兑换</text>
+			<view class="wallet-box flex mt60 mb50 " >
+				<view @click="pushPage('/pages/zoology/shopList?data=',{id:item.id,name:item.name},1)" v-for="(item,i) in goodTypes" :key='item.id'  class=" flex flexdcolumn flex1">
+					<image class="wh84" :src="item.img" mode=""></image>
+					<text class="f30 mt30">{{item.name}}</text>
 				</view>
 			</view>
 			<view class="area-box disJcsb">
 				<view class="area pr"  @click="pushPage('/pages/index/region',2)">
-					<image class="br10 wh100 pb top left" src="/static/index/zzxfq@2x.png" mode=""></image>
-					<text class="f34 fwbold pb txt">消费增值区</text>
-				</view>
-				<view class="area pr"  @click="pushPage('/pages/zoology/shop',2)">
-					<image class="br10 wh100 pb top left" src="/static/index/gwxjq@2x.png" mode=""></image>
-					<text class="f34 fwbold pb txt">购物消费区</text>
+					<image class="br10 wh100 pb top left" src="/static/index/ffl.png" mode=""></image>
 				</view>
 			</view>
-			<view class="market-box flex">
-				<view class="market flex f32">
-					行情
+			<view class="disJcsbAc mt20 mb20">
+				<text class="f34 c333">热门好货</text>
+				<view class="opacity5 flexAI">
+					<text class="f28">更多</text>
+					<image class="wh60 " src="/static/index/in.png" mode=""></image>
 				</view>
 			</view>
-			<view class="currency-list">
-				<!-- <scroll-view scroll-y="true" class=""> -->
-					<view class="item disJcsbAc bg062B37 br10 mb10" v-for="(item,index) in quotation" :key="index">
-						<view class="item-left flexAI">
-							<image class="wh60 mr20" :src="item.img" mode=""></image>
-							<text class="fwbold">{{item.name}}</text>
-						</view>
-						<view class="cont flexdcolumn disFlex ">
-							<text class="f30">￥{{item.price}}</text>
-							<text class="f22" style="margin-left: 10rpx;">$&nbsp;{{item.MaxPrice}}</text>
-						</view>
-						<view class="rihgt">
-							<text v-if="item.zhangdie == 0" class="cFF4444 f30">+{{item.baifenbi}}%</text>
-							<text v-else class="c00FFBA f30">{{item.baifenbi}}%</text>
-						</view>
-					</view>
-				<!-- </scroll-view> -->
+			<view class="hot-list br20 disJcsb flexWrap">
+				<view class="list-item  disJcsb flexdcolumn br20 mb20 shadow" style="width: 336rpx;" @click="pushPage('/pages/zoology/manageBuy?data=',{id:item.id},1)"  v-for="(item,i) in hots" :key='i'>
+					<image class="shop-img" :src="item.pic" mode=""></image>
+					<text class="f30 ml20  mt20 mb20 c333">{{item.name}}</text>
+					<text class="f26 cFF4444 ml20 mb20">${{item.money}}</text>
+				</view>
 			</view>
 		</view>
-		<unipopup ref='shifts' type="center">
-			<view class="shade_box br10 flexdcolumn flexAI pr" style="width: 400rpx">
-				<image  @click="close" class="wh32 close pb" src="/static/user/close.png"></image>
-				<text class="f36">请选择币种</text>
-				<view class="" >
-					<view class="flex mt40 mb30" v-for="(item,i) in currencyList" :key='i' @click="goShits(item.id)" >
-						{{item.bz_name}}
-					</view>
-				</view>
-			</view>
-		</unipopup>
-		<unipopup ref='roll' type="center">
-			<view class="shade_box br10 flexdcolumn flexAI pr" style="width: 400rpx">
-				<image  @click="close" class="wh32 close pb" src="/static/user/close.png"></image>
-				<text class="f36">请选择币种</text>
-				<view class="" >
-					<view class="flex mt40 mb30" v-for="(item,i) in currencyList" :key='i' @click="goRolls(item.id)">
-						{{item.bz_name}}
-					</view>
-				</view>
-			</view>
-		</unipopup>
-		<unipopup ref='transfer' type="center">
-			<view class="shade_box br10 flexdcolumn flexAI pr" style="width: 400rpx">
-				<image  @click="close" class="wh32 close pb" src="/static/user/close.png"></image>
-				<text class="f36">请选择币种</text>
-				<view class="" >
-					<view class="flex mt40 mb30" v-for="(item,i) in currencyList" :key='i'  @click="goTransfers(item.id)">
-						{{item.bz_name}}
-					</view>
-				</view>
-			</view>
-		</unipopup>
 		
 	</view>
 	</view>
@@ -134,18 +75,20 @@
 				limg:[],
 				notice_list:[],
 				quotation:[],
-				isChong:'',
-				isTi:'',
-				isZhuan:'',
-				isDuihuan:'',
-				chongzhiBZ:[],
-				zhuanzhangBZ:[],
-				tibiBZ:[],
-				currencyList:[],
-				proportion:'',
-				usdtSXF:'',
-				jkcSXF:'',
-				isZhuanJkc:''
+				goodTypes:[],
+				hots:[]
+				// isChong:'',
+				// isTi:'',
+				// isZhuan:'',
+				// isDuihuan:'',
+				// chongzhiBZ:[],
+				// zhuanzhangBZ:[],
+				// tibiBZ:[],
+				// currencyList:[],
+				// proportion:'',
+				// usdtSXF:'',
+				// jkcSXF:'',
+				// isZhuanJkc:''
 			}
 		},
 		
@@ -226,17 +169,20 @@
 						this.limg = res.data.banners
 						this.notice_list = res.data.gongaos
 						this.quotation = res.data.hangQs
-						this.isChong = res.data.isTrue.isChong 
-						this.isTi = res.data.isTrue.isTi 
-						this.isZhuan = res.data.isTrue.isZhuan 
-						this.isDuihuan = res.data.isTrue.isDuihuan 
-						this.chongzhiBZ = res.data.chongzhiBZ
-						this.zhuanzhangBZ = res.data.zhuanzhangBZ
-						this.tibiBZ = res.data.tibiBZ
-						this.proportion = res.data.duihuanbili
-						this.usdtSXF = res.data.usdtSXF
-						this.jkcSXF = res.data.jkcSXF
-						this.isZhuanJkc = res.data.isTrue.isJkfScZZ
+						this.goodTypes = res.data.goodTypes
+						this.hots = res.data.hots
+						
+						// this.isChong = res.data.isTrue.isChong 
+						// this.isTi = res.data.isTrue.isTi 
+						// this.isZhuan = res.data.isTrue.isZhuan 
+						// this.isDuihuan = res.data.isTrue.isDuihuan 
+						// this.chongzhiBZ = res.data.chongzhiBZ
+						// this.zhuanzhangBZ = res.data.zhuanzhangBZ
+						// this.tibiBZ = res.data.tibiBZ
+						// this.proportion = res.data.duihuanbili
+						// this.usdtSXF = res.data.usdtSXF
+						// this.jkcSXF = res.data.jkcSXF
+						// this.isZhuanJkc = res.data.isTrue.isJkfScZZ
 					} else {
 						uni.showToast({
 							title:res.resule,
@@ -268,7 +214,7 @@
 		.index {
 			height: 100%;
 			.index-count {
-				padding: 20px 30rpx;
+				padding:0px 30rpx 20px 30rpx;
 				.swiper-box {
 					.swiper-box {
 						height: 340rpx;
@@ -276,12 +222,8 @@
 				}
 				.area-box {
 					.area {
-						width:324rpx;
-						height:140rpx;
-						.txt {
-							left: 20rpx;
-							top: 56rpx;
-						}
+						width:100%;
+						height:200rpx;
 					}
 				}
 				.market-box {
@@ -310,6 +252,18 @@
 				top: 20rpx;
 			}
 			
+			
+		}
+		.hot-list {
+			padding: 0rpx 0rpx 100rpx 0rpx;
+			.list-item {
+				.shop-img {
+					border-radius:20rpx 20rpx 0px 0px;
+					width: 336rpx;
+					height: 336rpx;
+					
+				}
+			}
 		}
 		}
 	}

@@ -1,27 +1,27 @@
 <template>
-	<view class="register">
+	<view class="transfer">
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
 		<Back :txt="'转账'"></Back>
 		<view class="cont">
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">转账会员</text>
 				<input type="text " class="flex1 f28" v-model.trim="walletAddress" placeholder="请输入转账会员ID号/手机号" />
 			</view>
-			<!-- <view class="f28 bg062B37 br10 item flexAI mt20">
+			<!-- <view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">手续费</text>
 				<input type="text " class="flex1 f28" v-model.trim="service"  disabled/>
 			</view> -->
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">转账数量</text>
 				<input class="f28" type="number" v-model.trim="account" placeholder="请输入支付密码" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">支付密码</text>
 				<input class="f28" type="password" password @input="onKeyInput($event)" v-model.trim="password" placeholder="请重新输入新密码" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexJC mt20" style="padding-right: 0;" >
+			<view class="f28 bgcfff br10 item flexAI mt20" style="padding-right: 0;" >
 				<view class="flexAI">
 					<text class="flexAI">短信验证</text>
 					<input class="f28" type="number" v-model.trim="smsCode" placeholder="请输入验证码" />
@@ -30,7 +30,7 @@
 				<text class="flex c00FFBA" v-else >{{time}}s重新获取</text>
 			</view>
 			<view class="btn-box" @click="getTransform">
-				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60">
+				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60 cfff">
 					确定
 				</view>
 			</view>
@@ -193,7 +193,7 @@
 
 <style scoped lang="less">
 	page{
-		.register {
+		.transfer {
 			.cont {
 				padding: 0 30rpx;
 				.item {

@@ -5,21 +5,21 @@
 		</view>
 		<Back :txt="'修改支付密码'"></Back>
 		<view class="cont ml30 mr30">
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">手机号</text>
 				<input type="number" class="f28" v-model.trim="phone"  placeholder="请输入手机号" />
 			</view>
-			<view class="f28 bg062B37 br10 item disJcsbAc mt20 pr" style="padding-right: 10rpx;" >
+			<view class="f28 bgcfff br10 item disJcsbAc mt20 pr" style="padding-right: 10rpx;" >
 				<view class="flexAI" style="height: 100%;">
 					<text class="flexAI">选择账号</text>
 					<input class="f28" type="text" v-model.trim="account" placeholder="请输入验证码" />
 				</view>
 				<image class="wh60 ml20" src="/static/login/down.png" @click="getAccount" mode=""></image>
-				<view class="select pb" v-if="select" style="background-color: #014046;">
+				<view class="select pb" v-if="select" style="background-color: #E5E5E5;">
 					<view v-for="(item,index) in list" :key="index" @click="dropDown(item)">{{item.user_name}}</view>
 				</view>
 			</view>
-			<view class="f28 bg062B37 br10 item disJcsbAc mt20 " style="padding-right: 10rpx;" >
+			<view class="f28 bgcfff br10 item disJcsbAc mt20 " style="padding-right: 10rpx;" >
 				<view class="flexAI" style="height: 100%;">
 					<text class="flexAI">验证码</text>
 					<input class="f28" type="number" v-model.trim="code" placeholder="请输入验证码" />
@@ -27,16 +27,16 @@
 				<text class="flex c00FFBA" v-if="!sendTime" @click="getCode">发送验证码</text>
 				<text class="flex" v-else >{{time}}s重新获取</text>
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">新密码</text>
 				<input class="f28" type="password" @input="onKeyInput($event, 1)"  v-model.trim="password" maxlength="6" placeholder="请设置支付密码" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">新密码</text>
 				<input class="f28" type="password" @input="onKeyInput($event, 2)"  v-model.trim="newpasssword" maxlength="6" placeholder="请确认支付密码" />
 			</view>
 			<view class="btn-box" @click="changpasswordEvt">
-				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60">
+				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60 cfff">
 					修改密码
 				</view>
 			</view>

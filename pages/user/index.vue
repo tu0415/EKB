@@ -1,21 +1,21 @@
 <template>
 	<view class="index">
 		<view class="index-cont">
-			<view class="banner pr">
-				<image class="wh100 pb user-bg" src="/static/user/wd_bg@2x.png" mode=""></image>
+			<view class="banner pr bg-linear">
+				<!-- <image class="wh100 pb user-bg" src="/static/user/wd_bg@2x.png" mode=""></image> -->
 				<!-- <image @click="scan" class="wh48 scan-code" src="/static/user/sys@2x.png" mode=""></image> -->
 				<!-- <image @click="codeEvt" class="wh48  menu pb" src="/static/user/menu.png" mode=""></image> -->
 				<view class="pb info flex flexdcolumn">
 					<image  class="user-img mb10" :src="userInfo.pic_img" mode=""></image>
-					<view class="f32 flexAI">
-						<text>ID:{{userInfo.tel}}</text>
-						<image class="wh48 ml20" :src="'/static/user/v' +userInfo.vip+ '@2x.png'" mode=""></image>
+					<view class="f32 flexAI mt20">
+						<text class="cfff">ID:{{userInfo.tel}}</text>
+						<image style="width: 50rpx;height: 63rpx;" class=" ml20" :src="'/static/user/K' +userInfo.vip+ '.png'" mode=""></image>
 					</view>
 				</view>
 			</view>
-			<view class="flex bg062B37 br20 mr30 ml30 column pr">
+			<view class="flex    column pr bgcfff">
 				<view class="flexAI flexdcolumn flex1" @click="pushPage('/pages/user/myOrder',1)" >
-					<image class="wh48" src="/static/user/wddd@2x.png" mode=""></image>
+					<image class="wh48" src="/static/user/dd.png" mode=""></image>
 					<text class="f28 mt20">我的订单</text>
 				</view>
 				<view class="flexAI flexdcolumn flex1" @click="pushPage('/pages/user/myEarnings',1)" >
@@ -23,64 +23,64 @@
 					<text class="f28 mt20">我的收益</text>
 				</view>
 				<view class="flexAI flexdcolumn flex1" @click="pushPage('/pages/user/team',1)" >
-					<image class="wh48" src="/static/user/wdtd@2x.png" mode=""></image>
+					<image class="wh48" src="/static/user/wdtd.png" mode=""></image>
 					<text class="f28 mt20">我的团队</text>
 				</view>
 				<view class="flexAI flexdcolumn flex1" @click="pushPage('/pages/user/share',1)" >
-					<image class="wh48" src="/static/user/wyfx@2x.png" mode=""></image>
+					<image class="wh48" src="/static/user/wyfx.png" mode=""></image>
 					<text class="f28 mt20">我要分享</text>
 				</view>
 				
 			</view>
-			<view class="list bg062B37 br20 mt30 ml30 mr30">
+			<view class="list   mt30 bgcfff">
 				<view class="item disJcsbAc" @click="pushPage('/pages/user/address',1)" >
 					<view class="disJcsbAc" >
-						<image class="wh48 mr30" src="/static/user/shdz@2x.png" mode=""></image>
+						<image class="wh48 mr30" src="/static/user/shdz.png" mode=""></image>
 						<text class="f28">收货地址</text>
 					</view>
-					<image class="wh40" src="/static/user/into@3x.png" mode=""></image>
+					<image class="wh48" src="/static/index/in.png" mode=""></image>
 				</view>
 				<view class="item disJcsbAc" @click="service">
 					<view class="disJcsbAc">
-						<image class="wh48 mr30" src="/static/user/kf@2x.png" mode=""></image>
+						<image class="wh48 mr30" src="/static/user/kf.png" mode=""></image>
 						<text class="f28">联系客服</text>
 					</view>
-					<image class="wh40" src="/static/user/into@3x.png" mode=""></image>
+					<image class="wh48" src="/static/index/in.png" mode=""></image>
 				</view>
 				<view class="item disJcsbAc"  @click="pushPage('/pages/user/notice',1)">
 					<view class="disJcsbAc">
 						<image class="wh48 mr30" src="/static/user/gg.png" mode=""></image>
 						<text class="f28">系统公告</text>
 					</view>
-					<image class="wh40" src="/static/user/into@3x.png" mode=""></image>
+					<image class="wh48" src="/static/index/in.png" mode=""></image>
 				</view>
 				<view class="item disJcsbAc" @click="pushPage('/pages/user/security',1)">
 					<view class="disJcsbAc" >
-						<image class="wh48 mr30" src="/static/user/anquan@2x.png" mode=""></image>
+						<image class="wh48 mr30" src="/static/user/anquan.png" mode=""></image>
 						<text class="f28">安全设置</text>
 					</view>
-					<image class="wh40" src="/static/user/into@3x.png" mode=""></image>
+					<image class="wh48" src="/static/index/in.png" mode=""></image>
 				</view>
 				<view class="item disJcsbAc" @click="quit">
 					<view class="disJcsbAc">
-						<image class="wh48 mr30" src="/static/user/tc@2x.png" mode=""></image>
+						<image class="wh48 mr30" src="/static/user/tc.png" mode=""></image>
 						<text class="f28">退出登录</text>
 					</view>
-					<image class="wh40" src="/static/user/into@3x.png" mode=""></image>
+					<image class="wh48" src="/static/index/in.png" mode=""></image>
 				</view>
 			</view>
 		</view>
 	
 		<view class="shade" v-if="isService">
-			<view class="shade_box br10">
-				<image @click="isService = false" class="wh20 close pb" src="/static/user/close.png" mode=""></image>
+			<view class="shade_box br10" style="background-color: #fff;">
+				<image @click="isService = false" class="wh40 close pb" src="/static/user/Popup_close.png" mode=""></image>
 				<view class="title f34 flex f32">
 					<text>客服邮箱</text>
 				</view>
 				<view class="txt f36 number flex">
 					{{userInfo.kefu}}
 				</view>
-				<view class="confirm bg00FFBA br10 flex c021E34 h70 m0 f26" @click="copy">
+				<view class="confirm bg00FFBA br10 flex c021E34 h70 m0 f26 cfff" @click="copy">
 					复制邮箱
 				</view>
 				
@@ -167,9 +167,9 @@
 .index {
 	.index-cont {
 		.banner {
-			height: 460rpx;
+			height: 370rpx;
 			.info {
-				top: 140rpx;
+				top: 70rpx;
 				left: 50%;
 				transform: translateX(-50%);
 				.user-img {
@@ -190,7 +190,7 @@
 			padding: 35rpx 50rpx 35rpx 63rpx;
 		}
 		.column {
-			margin-top: -100rpx;
+			// margin-top: -100rpx;
 			padding: 40rpx 0;
 		}
 	}

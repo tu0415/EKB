@@ -1,9 +1,9 @@
 {
-    "name" : "JKC",
+    "name" : "EKB",
     "appid" : "__UNI__FD6FB09",
     "description" : "",
-    "versionName" : "1.0.6",
-    "versionCode" : 106,
+    "versionName" : "1.0.8",
+    "versionCode" : 108,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -114,7 +114,7 @@
         "usingComponents" : true
     },
     "h5" : {
-        "title" : "JKC",
+        "title" : "EKB",
         "router" : {
             "base" : "/h5/"
         },

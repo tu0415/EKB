@@ -1,10 +1,10 @@
 <template>
-	<view class=" h100 bg041D25">
+	<view class=" h100 ">
 		<view class="status_bar bg041D25"><view class="top-view bg041D25"></view></view>
-		<view class=" bg041D25">
+		<view class=" bgf1">
 			<Back :txt="'确认下单'"></Back>
 		</view>
-		<view class="count ml30 mr30">
+		<view class="count bgcfff pl30 pr30" style="padding-bottom: 10rpx;padding-top: 10rpx;">
 			<view class="disJcsbAc br20 mt60 mb50">
 				<view class="flexAI">
 					<image class="wh40" src="/static/user/address.png" mode=""></image>
@@ -18,7 +18,7 @@
 						<text class="mb20">{{addres.tel}}</text>
 						<!-- <text>ddd</text> -->
 					</view>
-					<image class="wh40 ml20" src="/static/user/into@3x.png" mode=""></image>
+					<image class="wh40 ml20" src="/static/index/in.png" mode=""></image>
 				</view>
 			</view>
 			<view class="disJcsb f28 mt60 mb50">
@@ -41,22 +41,22 @@
 			</view>
 			<view class="f28  mt60 mb50 ">
 				<text class="mb20">卖家留言</text>
-				<textarea class="mt20 bg062B37 leave" v-model="buyMessage" placeholder="订单补充说明" />
+				<textarea class="mt20 bgf1 leave" v-model="buyMessage" placeholder="订单补充说明" />
 			</view>
 		</view>
 		
-		<view class="f28 disJcsbAc place-box bg062B37 ">
+		<view class="f28 disJcsbAc place-box bgcfff ">
 			<view class="">
 				合计 <text class="cFF4444 ml10">${{info.sumPrice}}</text>
 			</view>
-			<view class="flex bottom" @click="openShare">
+			<view class="flex bottom bg00FFBA cfff" @click="openShare">
 				立即下单
 			</view>
 		</view>
 			
 		<unipopup ref='shade' type="center" >
 			<view class="shade_box br10 flexdcolumn flexAI">
-				<image  @click="close" class="wh32 close pb" src="/static/user/close.png"></image>
+				<image  @click="close" class="wh32 close pb" src="/static/user/Popup_close.png"></image>
 				<text class="f30">请输入支付密码</text>
 				<view class="pwd-box pr flex mt30">
 					<input  type="password pb" ref="pwd" focus="false" class="pwd" v-model="msg" maxlength="6" />
@@ -81,7 +81,7 @@
 						</view>
 					</view>
 				</view>
-				<view class="btn br10 f32 c000 bg26B5FF flex h88 mr30 ml30 mt60" @click="payEvt">
+				<view class="btn br10 f32 c000 bg26B5FF flex h88 mr30 ml30 mt60 cfff" @click="payEvt">
 					确认
 				</view>
 			</view>
@@ -222,7 +222,6 @@ page {
 		height: 100rpx;
 		padding: 0 20rpx;
 		.bottom {
-			background-color: #26B5FF;
 			width: 200rpx;
 			height: 70rpx;
 			border-radius: 35rpx;
@@ -239,12 +238,13 @@ page {
 	
 		.pwd-box {
 			.pwd {
-				width: 480rpx;
-				height: 80rpx;
+				width: 540rpx;
+				height: 90rpx;
 				z-index: -1;
-				background-color: #264A6A;
+				background-color: #fff;
 				padding-left: 20rpx;
-				color: #264A6A;
+				color: #fff;
+				border: 1px solid #F1F1F1;
 			}
 	
 			.pwd-wrap {
@@ -253,13 +253,13 @@ page {
 				top: 0;
 	
 				.list-num {
-					border-right: 2rpx solid #102A41;
+					border-right: 2rpx solid #F1F1F1;
 					height: 100%;
 					.dot {
 						width: 24rpx;
 						height: 24rpx;
 						border-radius: 50%;
-						background-color: #FFFFFF;
+						background-color: #333;
 					}
 				}
 	
@@ -270,7 +270,7 @@ page {
 		}
 	
 		.btn {
-			width: 400rpx;
+			width: 100%;
 			border-radius: 40rpx;
 			height: 80rpx;
 		}

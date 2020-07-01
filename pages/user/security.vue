@@ -5,13 +5,13 @@
 		</view>
 		<Back :txt="'安全设置'"></Back>
 		<view class="list">
-				<view class="item bg062B37 br10 disJcsbAc mb20" @click="pushPage('/pages/login/changePassword',1)">
+				<view class="item bgcfff br10 disJcsbAc mb20" @click="pushPage('/pages/login/changePassword',1)">
 					<text class="f30">修改登录密码</text>
-					<image class="wh60" src="/static/user/into@3x.png" mode=""></image>
+					<image class="wh60" src="/static/index/in.png" mode=""></image>
 				</view>
-				<view class="item bg062B37 br10 disJcsbAc mb20" @click="pushPage('/pages/login/changePaypassword',1)">
+				<view class="item bgcfff br10 disJcsbAc mb20" @click="pushPage('/pages/login/changePaypassword',1)">
 					<text class="f30">修改支付密码</text>
-					<image class="wh60" src="/static/user/into@3x.png" mode=""></image>
+					<image class="wh60" src="/static/index/in.png" mode=""></image>
 				</view>
 		</view>
 	</view>

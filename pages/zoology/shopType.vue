@@ -1,7 +1,7 @@
 <template>
-	<view class=" h100 bg041D25">
-		<view class="status_bar bg041D25"><view class="top-view bg041D25"></view></view>
-		<view class="tops bg041D25">
+	<view class=" h100 ">
+		<view class="status_bar "><view class="top-view "></view></view>
+		<view class="tops " style="background-color: #F1F1F1;">
 			<Back :txt="name"></Back>
 		</view>
 		<view class="list br20 disJcsb flexWrap">

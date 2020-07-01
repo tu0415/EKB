@@ -46,11 +46,9 @@
 		"enablePullDownRefresh": false
 	},
 	"tabBar": {
-		"color": "#707881",
-		"selectedColor": "#30EC89",
-		"backgroundColor": "#031318",
-		// "fontSize": "22rpx",
-		// "iconWidth": "40rpx",
+		"color": "#666666",
+		"selectedColor": "#FE701A",
+		"backgroundColor": "#FFFFFF",
 		"list": [
 			{
 				"pagePath": "pages/index/index",

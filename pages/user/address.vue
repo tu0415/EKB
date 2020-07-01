@@ -5,7 +5,7 @@
 		</view>
 			<Back :txt="'收货地址'"></Back>
 		<view class="list">
-			<view class="bg062B37 list-item mb20" v-for="(item,i) in list" :key='i'>
+			<view class="bgcfff list-item mb20" v-for="(item,i) in list" :key='i'>
 				<view class="bdbfff1 pb30">
 					<view class="f28 disJcsbAc">
 						<text>{{item.name}}</text>
@@ -36,7 +36,7 @@
 				没有更多
 			</view>
 		</view>
-		<view class="btn f36 c021E34  flex bg041D25  mt60">
+		<view class="btn f36 c021E34  flex   mt60">
 			<view class=" btn-box flex bg00FFBA h90 br45">
 				<view class="wh100 flex"  @click="pushPage('/pages/user/addSite',2)" >
 					添加地址

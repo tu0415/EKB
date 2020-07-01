@@ -5,20 +5,20 @@
 		</view>
 			<Back :txt="'编辑收货地址	'"></Back>
 		<view class="list">
-			<view class="bg062B37 list-item flexAI">
+			<view class="bgcfff list-item flexAI">
 				<text class="f32 txt">收货人</text>
 				<input type="text" v-model="name" placeholder="请输入收货人姓名" />
 			</view>
-			<view class="bg062B37 list-item flexAI">
+			<view class="bgcfff list-item flexAI">
 				<text class="f32 txt">手机号码</text>
 				<input type="number" v-model="tel" placeholder="请输入手机号码" />
 			</view>
-			<view class="list-item bg062B37">
+			<view class="list-item bgcfff">
 				<text class="f32">详细地址</text>
 				<textarea class="trea mt20" v-model="street" placeholder="请填写地址" />
 			</view>
 		</view>
-		<view class="btn f36 c021E34 bg00FFBA flex br45 h90 " @click="getList">
+		<view class="btn f36 c021E34 bg00FFBA flex br45 h90 cfff" @click="getList">
 			完成
 		</view>
 	</view>

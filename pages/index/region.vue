@@ -1,27 +1,27 @@
 <template>
-	<view class="region">
+	<view class="region" id="region">
 		<view class="status_bar"><view class="top-view"></view></view>
-		<view class="title-fixed bg041D25">
-			<Back :txt="'增值消费区'"><view class="f30" slot="right" @click="pushPage('/pages/index/staticEarnings', 2)">记录</view></Back>
+		<view class="title-fixed ">
+			<Back :txt="'KB翻番乐'"><view class="f30" slot="right" @click="pushPage('/pages/index/staticEarnings', 2)">记录</view></Back>
 		</view>
-		<view class="region-list mr30 ml30">
+		<view class="region-list mr30 ml30 ">
 			<!-- <view class="list-item br20 bg-linear mb30"  v-for="(item,i) in list" :key='i' @click="pushPage('/pages/index/regionDetail?data=',{id:item.id,usdt:usdt,jkc:jkc,usdtBILI:usdtBILI,beis:item.beishu,name:item.name,jkcBILI:jkcBILI},1)" > -->
 			<view
-				class="list-item br20 bg-linear mb30"
+				class="list-item br20 bgcfff mb30"
 				v-for="(item, i) in list"
-				:key="i"
+				:key="i" 
 				@click="
 					pushPage('/pages/zoology/shopList?data=', { id: item.id, usdt: usdt, jkc: jkc, usdtBILI: usdtBILI, beis: item.beishu, name: item.name, jkcBILI: jkcBILI }, 1)
 				"
 			>
-				<view class="title flex bdbfff1 mb30">{{ item.name }}</view>
-				<view class="flex">
+				<view class="title flex bdbfff1  cfff" :class="{'green_linear':item.id == 1,'blue_linear':item.id == 2,'purple_linear':item.id == 3,'red_linear':item.id == 4}">{{ item.name }}</view>
+				<view class="flex count-number">
 					<view class="flexAI flexdcolumn flex1">
-						<text class="f32 c00FFBA">{{ item.minNum }}-{{ item.maxNum }}</text>
+						<text class="f32 ">{{ item.minNum }}-{{ item.maxNum }}</text>
 						<text class="f26 opacity5 mt30">投资(USDT)</text>
 					</view>
 					<view class="flexAI flexdcolumn flex1">
-						<text class="f32 cFFEB0C">{{ item.beishu }}倍</text>
+						<text class="f32 ">{{ item.beishu }}倍</text>
 						<text class="f26 opacity5 mt30">收益倍数</text>
 					</view>
 					<view class="flexAI flexdcolumn flex1">
@@ -74,13 +74,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.region {
+#region {
 	.region-list {
-		padding-top: 100rpx;
+		padding-top: 140rpx;
 		.list-item {
-			padding: 20rpx 53rpx 40rpx;
+			// padding: 20rpx 53rpx 40rpx;
 			.title {
-				padding-bottom: 30rpx;
+				height: 86rpx;
+				border-radius:20rpx 20rpx 0px 0px;
+			}
+			.count-number {
+				padding: 40rpx;
 			}
 		}
 	}

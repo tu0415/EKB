@@ -1,7 +1,7 @@
 <template>
-	<view class="ktvdetail h100 bgcf5f5">
-		<view class="status_bar bgcf5f5"><view class="top-view bgcf5f5"></view></view>
-		<view class="tops bg041D25">
+	<view class="ktvdetail h100 ">
+		<view class="status_bar "><view class="top-view "></view></view>
+		<view class="tops ">
 			<Back :txt="'我的订单'"></Back>
 			<view class="tab">
 				<view class="flex">
@@ -146,10 +146,10 @@ page {
 				}
 			}
 			.item.active {
-				color: #2feb89;
+				color: #333333;
 				opacity: 1;
 				text {
-					background-color: #2feb89;
+					background-color: #FE701A;
 				}
 			}
 		}

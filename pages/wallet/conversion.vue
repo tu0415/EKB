@@ -1,38 +1,38 @@
 <template>
-	<view class="register">
+	<view class="conversion">
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
 		<Back :txt="'兑换'"></Back>
 		<view class="cont">
 			<view class="disJcsbAc mt30">
-				<view class="br20 bg062B37 flex fwbold f40 box">
-					JKF
+				<view class="br20 bgcfff flex fwbold f40 box">
+					KB
 				</view>
-				<image class="wh60" src="/static/index/dh@2x.png" mode=""></image>
-				<view class="br20 bg062B37 flex fwbold f40 box">
-					JKC
+				<image class="wh60" src="/static/index/dh.png" mode=""></image>
+				<view class="br20 bgcfff flex fwbold f40 box">
+					USDT
 				</view>
 			</view>
 			<view class="mt20 mb20">
-				<text class="f26">兑换率: 1JKF = {{proportion}}JKC</text>
+				<text class="f26">兑换率: 1KB = {{proportion}}USDT</text>
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">兑换数量</text>
 				<input type="number" class="flex1 f28" v-model.trim="account" placeholder="请输入需兑换的数量" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexJC mt20" style="padding-right: 0;" >
+			<view class="f28 bgcfff br10 item flexJC mt20" style="padding-right: 0;" >
 				<view class="flexAI">
 					<text class="flexAI">兑换得到</text>
 					<input class="f28" type="number" v-model.trim="acquisition" placeholder="输入数量自动换算" />
 				</view>
-				<text class="flex" >JKC</text>
+				<text class="flex" >USDT</text>
 			</view>
-			<view class="f28 bg062B37 br10 item flexAI mt20">
+			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">支付密码</text>
 				<input class="f28" type="password" password @input="onKeyInput($event)" v-model.trim="password" placeholder="请输入支付密码" />
 			</view>
-			<view class="f28 bg062B37 br10 item flexJC mt20" style="padding-right: 0;" >
+			<view class="f28 bgcfff br10 item flexJC mt20" style="padding-right: 0;" >
 				<view class="flexAI">
 					<text class="flexAI">短信验证</text>
 					<input class="f28" type="number" v-model.trim="smsCode" placeholder="请输入验证码" />
@@ -41,7 +41,7 @@
 				<text class="flex c00FFBA" v-else >{{time}}s重新获取</text>
 			</view>
 			<view class="btn-box" @click="getTransform">
-				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60">
+				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60 cfff">
 					确定
 				</view>
 			</view>
@@ -192,7 +192,7 @@
 
 <style scoped lang="less">
 	page{
-		.register {
+		.conversion {
 			.cont {
 				padding: 0 30rpx;
 				.box {

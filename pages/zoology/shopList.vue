@@ -1,11 +1,11 @@
 <template>
-	<view class=" h100 bg041D25">
+	<view class=" h100 bgcfff" style="height: 100%;">
 		<view class="status_bar bg041D25"><view class="top-view bg041D25"></view></view>
-		<view class="tops bg041D25">
+		<view class="tops bgf1">
 			<Back :txt="name"></Back>
 		</view>
-		<view class="list br20 disJcsb flexWrap">
-			<view class="list-item  disJcsb flexdcolumn br20 mb20" @click="pushPage('/pages/zoology/manageBuy?data=',{id:item.id,manageId:id},1)"  v-for="(item,i) in list" :key='i'>
+		<view class="list br20 disJcsb flexWrap bgcfff">
+			<view class="list-item shadow disJcsb flexdcolumn br20 mb20" @click="pushPage('/pages/zoology/manageBuy?data=',{id:item.id,manageId:id},1)"  v-for="(item,i) in list" :key='i'>
 				<image class="shop-img" :src="item.pic" mode=""></image>
 				<text class="f30 ml20  mt20 mb20">{{item.name}}</text>
 				<text class="f26 cFF4444 ml20 mb20">${{item.money}}</text>
@@ -85,11 +85,12 @@ page {
 	.list {
 		padding: 110rpx 30rpx 34rpx 30rpx;
 		.list-item {
-			background:rgba(23,59,55,1);
+			background:#fff;
+			width: 336rpx;
 			.shop-img {
 				border-radius:20rpx 20rpx 0px 0px;
-				width: 320rpx;
-				height: 320rpx;
+				width: 336rpx;
+				height: 336rpx;
 				
 			}
 		}

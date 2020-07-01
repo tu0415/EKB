@@ -1,5 +1,5 @@
 <template>
-	<view class="noticeDetail">
+	<view class="noticeDetail bgcfff">
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
@@ -46,7 +46,11 @@
 </script>
 
 <style scoped lang="less">
+	page {
+		height: 100%;
+	}
 	.noticeDetail {
+		height: 100%;
 		.count {
 			padding: 20rpx 20rpx 20rpx 30rpx;
 		}

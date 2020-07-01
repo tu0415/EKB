@@ -1,5 +1,5 @@
 <template>
-	<view class="region">
+	<view class="regionDetail">
 		<view class="status_bar"><view class="top-view"></view></view>
 		<Back :txt="name"></Back>
 		<view class="count mr30 ml30">
