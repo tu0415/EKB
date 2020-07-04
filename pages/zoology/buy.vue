@@ -13,7 +13,7 @@
 					<view class="page-section-spacing">
 						<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :circular="true" :interval="interval"
 						 :duration="duration" style="height: 700rpx;">
-							<swiper-item class="swiper-box" v-for="(item,index) in imgs" :key="index">
+							<swiper-item class="swiper-box" v-for="(item,index) in imgs" :key="index" @click="handlePrevewImage">
 								<image class="wh100" :src="item" mode=""></image>
 							</swiper-item>
 						</swiper>
@@ -174,7 +174,19 @@ export default {
 					})
 				}
 			})
-		}
+		},
+		// 点击图片预览
+		   handlePrevewImage(e) {
+		    // 先构造要预览的图片数组
+		    // const urls = this.imgs.pics.map(v => v.pics_mid);
+		    // 接收传递过来的图片url
+		    const current = e.currentTarget.dataset.url;
+		    console.log(current)
+		    uni.previewImage({
+		     current: current, // 当前显示图片的http链接
+		     urls: this.imgs // 需要预览的图片http链接列表
+		    })
+		   }
  	}
 };
 </script>

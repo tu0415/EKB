@@ -37,7 +37,7 @@
 			</view>
 		</view>
 		<view class="btn f36 c021E34  flex   mt60">
-			<view class=" btn-box flex bg00FFBA h90 br45">
+			<view class=" btn-box flex bg00FFBA h90 br45 cfff">
 				<view class="wh100 flex"  @click="pushPage('/pages/user/addSite',2)" >
 					添加地址
 				</view>

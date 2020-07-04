@@ -81,7 +81,7 @@
 						</view>
 					</view>
 				</view>
-				<view class="btn br10 f32 c000 bg26B5FF flex h88 mr30 ml30 mt60 cfff" @click="payEvt">
+				<view class="btn br10 f32 c000  flex h88 mr30 ml30 mt60 cfff bg00FFBA" @click="payEvt">
 					确认
 				</view>
 			</view>

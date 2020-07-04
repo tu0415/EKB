@@ -31,8 +31,8 @@
 					</view>
 				</view>
 			</view>
-			<view class="wallet-box flex mt60 mb50 " >
-				<view @click="pushPage('/pages/zoology/shopList?data=',{id:item.id,name:item.name},1)" v-for="(item,i) in goodTypes" :key='item.id'  class=" flex flexdcolumn flex1">
+			<view class="wallet-box flex mt20 mb50 " >
+				<view @click="pushPage('/pages/zoology/shopType?data=',{id:item.id,name:item.name},1)" v-for="(item,i) in goodTypes" :key='item.id'  class=" flex flexdcolumn flex1">
 					<image class="wh84" :src="item.img" mode=""></image>
 					<text class="f30 mt30">{{item.name}}</text>
 				</view>
@@ -44,13 +44,13 @@
 			</view>
 			<view class="disJcsbAc mt20 mb20">
 				<text class="f34 c333">热门好货</text>
-				<view class="opacity5 flexAI">
+				<view class="opacity5 flexAI" @click="pushPage('/pages/zoology/shopDetail',2)">
 					<text class="f28">更多</text>
 					<image class="wh60 " src="/static/index/in.png" mode=""></image>
 				</view>
 			</view>
 			<view class="hot-list br20 disJcsb flexWrap">
-				<view class="list-item  disJcsb flexdcolumn br20 mb20 shadow" style="width: 336rpx;" @click="pushPage('/pages/zoology/manageBuy?data=',{id:item.id},1)"  v-for="(item,i) in hots" :key='i'>
+				<view class="list-item  disJcsb flexdcolumn br20 mb20 shadow" style="width: 336rpx;" @click="pushPage('/pages/zoology/buy?data=',{id:item.id},1)"  v-for="(item,i) in hots" :key='i'>
 					<image class="shop-img" :src="item.pic" mode=""></image>
 					<text class="f30 ml20  mt20 mb20 c333">{{item.name}}</text>
 					<text class="f26 cFF4444 ml20 mb20">${{item.money}}</text>
@@ -214,7 +214,7 @@
 		.index {
 			height: 100%;
 			.index-count {
-				padding:0px 30rpx 20px 30rpx;
+				padding:0px 30rpx 0px 30rpx;
 				.swiper-box {
 					.swiper-box {
 						height: 340rpx;
@@ -255,7 +255,7 @@
 			
 		}
 		.hot-list {
-			padding: 0rpx 0rpx 100rpx 0rpx;
+			padding: 0rpx 0rpx 0rpx 0rpx;
 			.list-item {
 				.shop-img {
 					border-radius:20rpx 20rpx 0px 0px;

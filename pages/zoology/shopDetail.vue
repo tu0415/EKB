@@ -4,11 +4,16 @@
 		<view class="tops bgf1">
 			<Back :txt="'更多'"></Back>
 		</view>
-		<view class="list br20 disJcsb flexWrap bgcfff">
-			<view class="list-item shadow  disJcsb flexdcolumn br20 mb20" @click="pushPage('/pages/zoology/buy?data=',{id:item.id},1)"  v-for="(item,i) in list" :key='i'>
-				<image class="shop-img" :src="item.pic" mode=""></image>
-				<text class="f30 ml20  mt20 mb20">{{item.name}}</text>
-				<text class="f26 cFF4444 ml20 mb20">${{item.money}}</text>
+		<view class="list br20  ">
+			<view class="disJcsb flexWrap">
+				<view class="list-item shadow  disJcsb flexdcolumn br20 mb20" @click="pushPage('/pages/zoology/buy?data=',{id:item.id},1)"  v-for="(item,i) in list" :key='i'>
+					<image class="shop-img" :src="item.pic" mode=""></image>
+					<text class="f30 ml20  mt20 mb20">{{item.name}}</text>
+					<text class="f26 cFF4444 ml20 mb20">${{item.money}}</text>
+				</view>
+			</view>
+			<view class="f28 flex mt10"  v-if="finish">
+				没有更多
 			</view>
 		</view>
 	</view>
@@ -19,22 +24,33 @@ import Back from '@/components/back.vue';
 export default {
 	data() {
 		return {
-			list:[]
+			list:[],
+			page:1,
+			finish:false
 		};
 	},
 	onLoad(e) {},
 	onShow() {
+		this.clearData()
 		this.getData()
 	},
 	components: {
 		Back
 	},
-	onReachBottom() {},
+	onReachBottom() {
+		this.getData()
+	},
 	methods: {
 		getData() {
-			this.$http.questToken(this.$API.shop.hotList,'post').then(res=>{
+			let data = {
+				page:this.page,
+			}
+			if (this.finish) return
+			this.$http.questToken(this.$API.shop.hotList,'post',data).then(res=>{
 				if(res.code == 200) {
-					this.list = res.data
+					this.finish = res.data.length < 10
+										!this.finish && (this.page += 1)
+										this.list = this.list.concat(res.data)
 				} else {
 					uni.showToast({
 						title:res.msg,
@@ -43,6 +59,11 @@ export default {
 				}
 			})
 		},
+		clearData(){
+			this.page = 1
+			this.finish = false
+			this.list = []
+		},
 	}
 };
 </script>
@@ -50,7 +71,6 @@ export default {
 <style lang="less" scoped>
 page {
 	height: 100%;
-	background-color: #fff;
 	.tops {
 		position: fixed;
 		top: var(--status-bar-height);

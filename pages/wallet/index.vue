@@ -7,19 +7,19 @@
 		</view>
 		<view class="wallet-box flex " style="margin-top: -50rpx;">
 			<view url="/pages/wallet/shift" class=" flex flexdcolumn flex1" @click="goShift">
-				<image class="wh84" src="/static/wallet/cz.png" mode=""></image>
+				<image class="wh60" src="/static/wallet/cz.png" mode=""></image>
 				<text class="f30 mt10">充值</text>
 			</view>
 			<view url="/pages/wallet/shift" class=" flex flexdcolumn flex1" @click="goRoll">
-				<image class="wh84" src="/static/wallet/tb.png" mode=""></image>
+				<image class="wh60" src="/static/wallet/tb.png" mode=""></image>
 				<text class="f30 mt10">提币</text>
 			</view>
 			<view url="/pages/wallet/shift" class=" flex flexdcolumn flex1" @click="goTransfer">
-				<image class="wh84" src="/static/wallet/zz.png" mode=""></image>
+				<image class="wh60" src="/static/wallet/zz.png" mode=""></image>
 				<text class="f30 mt10">转账</text>
 			</view>
 			<view url="/pages/wallet/shift" class=" flex flexdcolumn flex1" @click="goConversion">
-				<image class="wh84" src="/static/wallet/zz.png" mode=""></image>
+				<image class="wh60" src="/static/wallet/dh.png" mode=""></image>
 				<text class="f30 mt10">兑换</text>
 			</view>
 		</view>
@@ -31,14 +31,14 @@
 				</view>
 				<text class="fwbold f36">{{ info.usdtMoney }}</text>
 			</view>
-			<view class="disJcsbAc bdbfff1 item shadow mb30 br20" @click="pushPage('/pages/wallet/detail?data=', { name: 'JKF', type: 2 }, 1)">
+			<view class="disJcsbAc bdbfff1 item shadow mb30 br20" @click="pushPage('/pages/wallet/detail?data=', { name: 'KB', type: 2 }, 1)">
 				<view class="flexAI">
 					<image class="wh80 mr20" src="/static/wallet/kb.png" mode=""></image>
 					<text class="f30 fwbold">KB</text>
 				</view>
 				<text class="fwbold f36">{{ info.kb_num }}</text>
 			</view>
-			<view class="disJcsbAc bdbfff1 item shadow mb30 br20" @click="pushPage('/pages/wallet/detail?data=', { name: 'JKC', type: 3 }, 1)">
+			<view class="disJcsbAc bdbfff1 item shadow mb30 br20" @click="pushPage('/pages/wallet/detail?data=', { name: 'EKB', type: 3 }, 1)">
 				<view class="flexAI">
 					<image class="wh80 mr20" src="/static/wallet/ekb.png" mode=""></image>
 					<text class="f30 fwbold">EKB</text>
@@ -75,7 +75,7 @@
 		</unipopup>
 		<unipopup ref='transfer' type="center">
 			<view class="shade_box br10 flexdcolumn flexAI pr" style="width: 400rpx">
-				<image  @click="close" class="wh32 close pb" src="/static/user/close.png"></image>
+				<!-- <image  @click="close" class="wh32 close pb" src="/static/user/close.png"></image> -->
 				<text class="f36">请选择币种</text>
 				<view class="" >
 					<view class="flex mt40 mb30" v-for="(item,i) in currencyList" :key='i'  @click="goTransfers(item.id)">
@@ -104,7 +104,9 @@ export default {
 			proportion:'',
 			usdtSXF:'',
 			ekbSXF:'',
-			isZhuanJkc:''
+			isZhuanJkc:'',
+			zzBili:'',
+			dhBili:''
 		};
 	},
 	components: {
@@ -143,7 +145,7 @@ export default {
 		goTransfers(id) {
 			this.$refs.transfer.close()
 				if(this.isZhuan == 1) {
-					this.pushPage('/pages/wallet/transfer?data=',{id:id},1)
+					this.pushPage('/pages/wallet/transfer?data=',{id:id,zzBili:this.zzBili},1)
 				} else {
 					uni.showToast({
 						title:'暂未开放',
@@ -158,7 +160,7 @@ export default {
 			} else {uni.showToast({title:'暂未开放',icon:none})}
 		},
 		goConversion() {if(this.isDuihuan == 1) {
-				this.pushPage('/pages/wallet/conversion?data=',{proportion:this.proportion},1)
+				this.pushPage('/pages/wallet/conversion?data=',{proportion:this.proportion,dhBili:this.dhBili},1)
 			} else {uni.showToast({title:'暂未开放',icon:none})}
 		},
 		getData() {
@@ -175,6 +177,8 @@ export default {
 					this.usdtSXF = res.data.usdtSXF
 					this.ekbSXF = res.data.ekbSXF
 					this.proportion = res.data.duihuanbili
+					this.zzBili = res.data.zzBili
+					this.dhBili = res.data.dhBili
 					
 				} else {
 					uni.showToast({

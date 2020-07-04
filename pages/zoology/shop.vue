@@ -31,7 +31,7 @@
 				</view>
 				<view class="flexAI"  @click="pushPage('/pages/zoology/shopDetail',1)">
 					<text class="f28 opacity5">更多</text>
-					<image class="wh40 ml10" src="/static/zoology/into@2x.png" mode=""></image>
+					<image class="wh40 ml10" src="/static/index/in.png" mode=""></image>
 				</view>
 			</view>
 			<view class="list br20 disJcsb flexWrap">

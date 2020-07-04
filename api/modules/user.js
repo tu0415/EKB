@@ -10,6 +10,7 @@ const user = {
 	upIsMoren:'/user/upIsMoren' ,// 设置默认收货地址
 	orderForm:'/user/findMyorderByStatus' ,// 我的订单
 	earnings:'/user/findMyshouyi' ,// 我的订单
+	qRorderById:'/shop/qRorderById' ,// 确认收货
 }
 
 export default user

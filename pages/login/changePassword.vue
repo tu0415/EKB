@@ -12,7 +12,7 @@
 			<view class="f28 bgcfff br10 item disJcsbAc mt20 pr" style="padding-right: 10rpx;" >
 				<view class="flexAI" style="height: 100%;">
 					<text class="flexAI">选择账号</text>
-					<input class="f28" type="text" v-model.trim="account" placeholder="请输入验证码" />
+					<input class="f28" type="text" v-model.trim="account" placeholder="请选择账号" />
 				</view>
 				<image class="wh60 ml20" src="/static/login/down.png" @click="getAccount" mode=""></image>
 				<view class="select pb" v-if="select" style="background-color: #E5E5E5;">

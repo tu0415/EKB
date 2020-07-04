@@ -1,15 +1,15 @@
 <template>
-	<view class="login ">
+	<view class="login bgcfff" >
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
 		<!-- <image class="logo-bg" src="/static/login/login_bg.png" mode=""></image> -->
 		
-		<view class="cont pr bgcfff">
+		<view class="cont pr bgcfff" >
 			<view class="login-top">
 				<image class="" style="height: 400rpx;width: 100%;" src="/static/login/dl_bg.png" mode=""></image>
 			</view>
-			<view class="logo-cont">
+			<view class="logo-cont ">
 				<view class="logo m0 mt10">
 					<image class="wh100" src="/static/login/logo.png" mode=""></image>
 					
@@ -52,6 +52,8 @@
 			</view>
 			
 		</view>
+	
+	
 	</view>
 </template>
 
@@ -197,9 +199,9 @@
 					margin: 0 auto;
 					position: absolute;
 					left: 50%;
-					top: 5%;
+					top: 1%;
 					// #ifdef APP-PLUS
-					margin-top: 100rpx;
+					margin-top: 50rpx;
 					// #endif
 					transform: translateX(-50%);
 					.logo {

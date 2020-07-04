@@ -72,8 +72,14 @@ const questToken = (url, method, data) => {
 				// 	uni.showToast({title:res[1].data.resule})
 				// 	uni.setStorageSync("token",'')
 				// 	uni.setStorageSync("mobile",'')
-					uni.reLaunch({url:'/pages/login/login'})
 					
+					uni.showToast({
+						title:'请重新登陆',
+						icon:'none'
+					})
+					setTimeout(()=>{
+						uni.reLaunch({url:'/pages/login/login'})
+					},500)
 				}
 				resolve(res[1].data)
 			}

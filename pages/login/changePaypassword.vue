@@ -187,6 +187,7 @@
 			onKeyInput(event, index) {
 				let i = event.target.value;
 				let num = i.charAt(i.length - 1);
+				console.log(num)
 				var reg = new RegExp('^[0-9]*$');
 				if (!reg.test(num)) {
 					if (index == 1) {

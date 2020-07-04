@@ -28,9 +28,16 @@
 				</view>
 				<text class="flex" >USDT</text>
 			</view>
+			<view class="f28 bgcfff br10 item flexJC mt20" style="padding-right: 0;" >
+				<view class="flexAI">
+					<text class="flexAI">需消耗</text>
+					<input class="f28" type="number" disabled v-model.trim="getNum" placeholder="输入数量自动换算" />
+				</view>
+				<text class="flex" >EKB</text>
+			</view>
 			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">支付密码</text>
-				<input class="f28" type="password" password @input="onKeyInput($event)" v-model.trim="password" placeholder="请输入支付密码" />
+				<input class="f28" type="password" maxlength="6" password @input="onKeyInput($event)" v-model.trim="password" placeholder="请输入支付密码" />
 			</view>
 			<view class="f28 bgcfff br10 item flexJC mt20" style="padding-right: 0;" >
 				<view class="flexAI">
@@ -64,6 +71,7 @@
 				sendTime: false, // 定时器,
 				service:"",
 				proportion:0,
+				dhBili:0
 				// countData:0
 				
 			}
@@ -73,6 +81,7 @@
 		},
 		onLoad(e) {
 			this.proportion = JSON.parse(e.data).proportion
+			this.dhBili = JSON.parse(e.data).dhBili
 		},
 		computed:{
 		    ...mapState(["address"]),
@@ -84,6 +93,9 @@
 				    this.countData = v
 				}
 				
+			},
+			getNum() {
+				return Number(this.account * this.dhBili / 100)
 			}
 		 },
 		onShow() {

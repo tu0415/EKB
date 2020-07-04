@@ -17,7 +17,7 @@
 				<view class="title flex bdbfff1  cfff" :class="{'green_linear':item.id == 1,'blue_linear':item.id == 2,'purple_linear':item.id == 3,'red_linear':item.id == 4}">{{ item.name }}</view>
 				<view class="flex count-number">
 					<view class="flexAI flexdcolumn flex1">
-						<text class="f32 ">{{ item.minNum }}-{{ item.maxNum }}</text>
+						<text class="f32 ">{{ item.licaiName }}</text>
 						<text class="f26 opacity5 mt30">投资(USDT)</text>
 					</view>
 					<view class="flexAI flexdcolumn flex1">

@@ -7,7 +7,7 @@
 		<view class="cont">
 			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">转账会员</text>
-				<input type="text " class="flex1 f28" v-model.trim="walletAddress" placeholder="请输入转账会员ID号/手机号" />
+				<input type="text " class="flex1 f28" v-model.trim="walletAddress" placeholder="请输入转账会员账号" />
 			</view>
 			<!-- <view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">手续费</text>
@@ -15,11 +15,18 @@
 			</view> -->
 			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">转账数量</text>
-				<input class="f28" type="number" v-model.trim="account" placeholder="请输入支付密码" />
+				<input class="f28" type="number" v-model.trim="account" placeholder="请输入转账数量" />
+			</view>
+			<view class="f28 bgcfff br10 item disJcsbAc mt20" style="padding-right:20rpx;">
+				<view class="flexAI">
+					<text class="flexAI" style="width: 170rpx;">需消耗</text>
+					<input class="f28 " type="number" disabled v-model.trim="getNum" placeholder="" />
+				</view>
+				<view class="flexAI opacity5" style="justify-content: flex-end;">EKB</view>
 			</view>
 			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">支付密码</text>
-				<input class="f28" type="password" password @input="onKeyInput($event)" v-model.trim="password" placeholder="请重新输入新密码" />
+				<input class="f28" type="password" maxlength="6" password @input="onKeyInput($event)" v-model.trim="password" placeholder="请输入支付密码" />
 			</view>
 			<view class="f28 bgcfff br10 item flexAI mt20" style="padding-right: 0;" >
 				<view class="flexAI">
@@ -52,7 +59,8 @@
 				time: 60, // 倒计时
 				sendTime: false, // 定时器,
 				service:"",
-				id:''
+				id:'',
+				zzBili:''
 			}
 		},
 		components: {
@@ -60,9 +68,12 @@
 		},
 		onLoad(e) {
 			this.id = JSON.parse(e.data).id
+			this.zzBili = JSON.parse(e.data).zzBili
 		},
 		computed:{
-		    // ...mapState(["address"])
+		   getNum() {
+			   return Number(this.account * this.zzBili / 100)
+		   }
 		 },
 		onShow() {
 			// this.getAsset()

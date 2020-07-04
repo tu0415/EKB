@@ -26,7 +26,7 @@
 				
 				let data = {
 					// #ifdef APP-PLUS
-					version: '1.0.8',
+					version: '1.0.3',
 					os: plus.os.name === 'iOS' ? 1 : 2,
 					// #endif
 				}

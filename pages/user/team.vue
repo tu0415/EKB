@@ -25,12 +25,12 @@
 				<text class="flex1 flex">级别</text>
 				<text class="flex1 flex">团队业绩</text>
 			</view>
-			<view class="box">
+			<view class="box ">
 				<scroll-view scroll-y="true" class="scroll-box">
-				<view class="list-item f28 flex" v-for="(item,index) in list" :key="index" >
+				<view class="list-item f28 flex " v-for="(item,index) in list" :key="index" >
 					<text class="flex1 flex">{{item.codeId}}</text>
 					<view class="flex1 flex">
-						<image class="wh60 " :src="'/static/user/v' +item.vip+ '@2x.png'" mode=""></image>
+						<image class="wh60 " :src="'/static/user/K' +item.vip+ '.png'" mode=""></image>
 					</view>
 					<text class="flex1 flex">{{item.gongxian || 0}}</text>
 				</view>

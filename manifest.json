@@ -1,9 +1,9 @@
 {
     "name" : "EKB",
-    "appid" : "__UNI__FD6FB09",
+    "appid" : "__UNI__C9DB843",
     "description" : "",
-    "versionName" : "1.0.8",
-    "versionCode" : 108,
+    "versionName" : "1.0.3",
+    "versionCode" : 103,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {

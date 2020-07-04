@@ -28,9 +28,16 @@
 				</view>
 				<text class="flexAI opacity5" style="justify-content: flex-end;">手续费{{service}}%</text>
 			</view>
+			<!-- <view class="f28 bgcfff br10 item flexJC mt20" style="padding-right:20rpx;">
+				<view class="flexAI">
+					<text class="flexAI" style="width: 160rpx;">需消耗</text>
+					<input class="f28 " type="number" v-model.trim="getNums" placeholder="" />
+				</view>
+				<text class="flexAI opacity5" style="justify-content: flex-end;">EKB</text>
+			</view> -->
 			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI" style="width: 160rpx;">支付密码</text>
-				<input class="f28" type="password" v-model.trim="password" placeholder="请输入支付密码" />
+				<input class="f28" type="password" maxlength="6" v-model.trim="password" placeholder="请输入支付密码" />
 			</view>
 			<view class="f28 bgcfff br10 item flexAI mt20" style="padding-right: 10rpx;">
 				<text class="flexAI" style="width: 160rpx;">短信验证</text>
@@ -76,7 +83,10 @@
 		computed:{
 			getNum() {
 				return this.account - this.account * (this.service / 100)
-			}
+			},
+			// getNums() {
+			// 	return Number(this.account * (this.service / 100))
+			// },
 		},
 		
 		methods: {

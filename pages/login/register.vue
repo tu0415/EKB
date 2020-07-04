@@ -3,7 +3,7 @@
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
-		<Back :txt="'注册'"></Back>
+		<Back :txt="'注册'" ></Back>
 		<view class="cont">
 			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">手机号</text>

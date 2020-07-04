@@ -1,7 +1,7 @@
 <template>
 	<view class="ktvdetail h100 ">
 		<view class="status_bar "><view class="top-view "></view></view>
-		<view class="tops ">
+		<view class="tops bgf1">
 			<Back :txt="'我的订单'"></Back>
 			<view class="tab">
 				<view class="flex">
@@ -26,13 +26,13 @@
 		</view>
 
 		<view class="list-cont ">
-			<view class="br20 bg052B37 list-itme mb20" v-for="(item,i) in list" :key='i'>
+			<view class="br20 bgcfff list-itme mb20" v-for="(item,i) in list" :key='i'>
 				<view class="disJcsbAc bdbfff1 pb30">
 					<view class="f26 disFlex flexdcolumn">
 						<text>订单号：{{item.orderSn}}</text>
 						<text class="mt10">物流单号：{{item.kuaiSn}}</text>
 					</view>
-					<text class="f26 c00FFBA">待发货</text>
+					<text class="f26 c00FFBA">{{item.status}}</text>
 				</view>
 				<view class="disJcsb bdbfff1">
 					<view class="info pt40 pb40 disFlex">
@@ -45,10 +45,17 @@
 					</view>
 					<text class="flex pb40" style="align-items: flex-end;">X{{item.buyNum}}</text>
 				</view>
-				<view class="jcend flexAI mt20 f26">
-					<text>共 {{item.buyNum}} 件</text>
-					<view class="ml20">
-						合计:<text class="cFF4444 ml20 ">￥{{item.sumMoney}}</text>
+				<view class="disJcsbAc flexAI mt20 f26">
+					<view class="">
+						<view v-if="status ==2" @click="goqRorderByIdEvt(item.orderId)" class="btn " style="border: 1px solid #FE701A;padding: 10rpx 20rpx;border-radius: 30rpx;color:#FE701A ;">
+							确认收货
+						</view>
+					</view>
+					<view class="flexAI">
+						<text>共 {{item.buyNum}} 件</text>
+						<view class="ml20">
+							合计:<text class="cFF4444 ml20 ">￥{{item.sumMoney}}</text>
+						</view>
 					</view>
 				</view>
 			</view>
@@ -116,6 +123,24 @@ export default {
 			this.page = 1;
 			this.finish = false;
 			this.list = [];
+		},
+		goqRorderByIdEvt(id) {
+			this.$http.questToken(this.$API.user.qRorderById, 'post', {order_id:id}).then(res => {
+				if (res.code == 200) {
+					uni.showToast({
+						title: res.msg,
+						icon: 'none'
+					});
+					this.list = this.list.filter(item => item.orderId != id )
+					
+					
+				} else {
+					uni.showToast({
+						title: res.msg,
+						icon: 'none'
+					});
+				}
+			});
 		}
 	}
 };

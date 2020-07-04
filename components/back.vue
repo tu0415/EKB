@@ -1,7 +1,7 @@
 <template>
 	<view class="back">
 		<view class="header">
-			<image :src="imgurl" alt="" @click="back">
+			<image :src="imgurl ? '../../static/login/back.png':'/static/user/back.png'" alt="" @click="back">
 				<text class="flex text" :style="styleStr">{{txt}}</text>
 				<view class="right f14 black">
 					<slot name="right"></slot>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+	// import imgurl from '@/static/login/back.png'
 	export default {
 		name: 'titles',
 		props: {
@@ -24,7 +25,12 @@
 				type: String
 			},
 			imgurl:{
-			   default:require('../static/login/back.png')
+			   default:require('@/static/login/back.png')
+			}
+		},
+		data() {
+			return {
+				
 			}
 		},
 		methods: {

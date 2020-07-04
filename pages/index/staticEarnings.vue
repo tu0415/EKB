@@ -1,10 +1,10 @@
 <template>
 	<view class="staticEarnings">
 		<view class="status_bar"><view class="top-view"></view></view>
-		<Back :txt="'投资记录'"></Back>
+		<Back :txt="'消费记录'"></Back>
 		<view class="index-cont">
 			<view class="currency-list ">
-				<view class="list-box mb20 bg062B37 br10" v-for="(item,i) in list" :key='i' >
+				<view class="list-box mb20 bgcfff br10" v-for="(item,i) in list" :key='i' >
 					<view class="f26 flexAI">
 						<text class="opacity5" style="width: 150rpx;">投资数量</text>
 						<text>{{item.shiji_money}}</text>

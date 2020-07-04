@@ -9,7 +9,7 @@
 					<image  class="user-img mb10" :src="userInfo.pic_img" mode=""></image>
 					<view class="f32 flexAI mt20">
 						<text class="cfff">ID:{{userInfo.tel}}</text>
-						<image style="width: 50rpx;height: 63rpx;" class=" ml20" :src="'/static/user/K' +userInfo.vip+ '.png'" mode=""></image>
+						<image style="width: 70rpx;height: 70rpx;" class=" ml20" :src="'/static/user/K' +userInfo.vip+ '.png'" mode=""></image>
 					</view>
 				</view>
 			</view>
@@ -169,7 +169,7 @@
 		.banner {
 			height: 370rpx;
 			.info {
-				top: 70rpx;
+				top: 120rpx;
 				left: 50%;
 				transform: translateX(-50%);
 				.user-img {

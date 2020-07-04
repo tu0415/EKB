@@ -80,11 +80,11 @@ export default {
 						this.money = res.data.usdtYe
 					}
 					if(this.type == 2) {
-						this.money = res.data.jkfYe
+						this.money = res.data.kbYe
 						this.locked = res.data.suocangYuE
 					}
 					if(this.type == 3) {
-						this.money = res.data.jkcYe
+						this.money = res.data.ekbYe
 					}
 					if(this.type == 4) {
 						this.money = res.data.gwjfYe
