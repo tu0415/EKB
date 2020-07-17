@@ -36,10 +36,10 @@
 				<text class="flex c00FFBA" v-if="!sendTime" @click="getCode">发送验证码</text>
 				<text class="flex c00FFBA" v-else >{{time}}s重新获取</text>
 			</view>
-			<view class="btn-box" @click="getTransform">
-				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60 cfff">
+			<view class="btn-box">
+				<button :disabled="disabled" class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60 cfff"  @click="getTransform">
 					确定
-				</view>
+				</button>
 			</view>
 		</view>
 	</view>
@@ -60,7 +60,8 @@
 				sendTime: false, // 定时器,
 				service:"",
 				id:'',
-				zzBili:''
+				zzBili:'',
+				disabled:false
 			}
 		},
 		components: {
@@ -115,7 +116,7 @@
 					});
 					return false;
 				}
-				
+				this.disabled = true
 				this.$http.quest(this.$API.login.code, "post", {tel: uni.getStorageSync('mobile'),type:2}).then(res => {
 					if(res.code == 200) {
 						this.send()
@@ -129,6 +130,7 @@
 							icon: 'none'
 						});
 					}
+					this.disabled = false
 							
 				}, error => {
 					console.log(error);

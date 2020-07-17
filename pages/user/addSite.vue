@@ -32,13 +32,16 @@
 				name:'',
 				tel:'',
 				address:'',
+				isPayadd:''
 			}
 		},
 		
 		components:{
 			Back
 		},
-		
+		onLoad(e) {
+			this.isPayadd = JSON.parse(e.data).isPayadd
+		},
 		methods:{
 			addAddressEvt() {
 				let reg = /^1[3|4|5|6|7|8|9][0-9]{9}$/
@@ -74,9 +77,16 @@
 							title:res.msg,
 							icon:'none'
 						})
-						uni.navigateTo({
-							url:'/pages/user/address'
-						})
+						if(this.isPayadd == 1) {
+							setTimeout(()=>{ uni.navigateBack({
+								delta:1
+							 })},800)
+						} else {
+							uni.navigateTo({
+								url:'/pages/user/address'
+							})
+						}
+						
 					} else {
 						uni.showToast({
 							title:res.msg,

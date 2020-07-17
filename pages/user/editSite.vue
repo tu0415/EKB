@@ -40,6 +40,7 @@
 			this.tel = e.tel
 			this.id = e.id
 			this.street = e.street
+			
 		},
 		
 		components:{

@@ -3,7 +3,7 @@
 		<view class="status_bar">
 			<view class="top-view"></view>
 		</view>
-		<Back :txt="'我的团队'"></Back>
+		<Back :txt="'我的商圈'"></Back>
 		<view class="count bg-linear br10 flex  f26 flexdcolumn">
 			<view class="flex mb20 cfff" style="width: 100%;">
 				<!-- <view class="flex1 flex">
@@ -14,8 +14,8 @@
 			</view>
 			<view class="flex" style="width: 100%;">
 				<!-- <text class="f30 flex1 flex f26">我的等级</text> -->
-				<text class=" flex1 flex f26 cfff">团队业绩</text>
-				<text class=" flex1 flex f26 cfff">推荐用户</text>
+				<text class=" flex1 flex f26 cfff">商圈业绩</text>
+				<text class=" flex1 flex f26 cfff">分享用户</text>
 			</view>
 			
 		</view>
@@ -23,7 +23,7 @@
 			<view class="title f28 flex">
 				<text class="flex1 flex">会员ID</text>
 				<text class="flex1 flex">级别</text>
-				<text class="flex1 flex">团队业绩</text>
+				<text class="flex1 flex">商圈业绩</text>
 			</view>
 			<view class="box ">
 				<scroll-view scroll-y="true" class="scroll-box">

@@ -18,12 +18,12 @@
 				<view class="login-box f30 ">
 					<view class="flexAI item-input bdde5">
 						<text class="flexAI">手机号</text>
-						<input type="number" v-model.trim="phone" value="" />
+						<input type="number" focus v-model.trim="phone" value="" placeholder="请输入手机号" />
 					</view>
 					<view class="disJcsbAc item-input bdde5 pr">
 						<view class="flexAI" style="height: 100%;">
 							<text class="flexAI">选择账号</text>
-							<input type="text" v-model.trim="account" value="" disabled/>
+							<input type="text" v-model.trim="account" value="" disabled placeholder="请选择账号"/>
 						</view>
 						<image class="wh60 ml20" src="/static/login/down.png" @click="getAccount" mode=""></image>
 						<view class="select pb bg052B37" style="background-color: #E5E5E5;" v-if="select" >
@@ -33,8 +33,8 @@
 					<view class="disJcsbAc item-input bdde5">
 						<view class="flexAI" style="height: 100%;">
 							<text class="flexAI">密码</text>
-							<input type="password"  v-if="see" v-model.trim="password" />
-							<input type="text" value="" v-else v-model.trim="password" />
+							<input type="password"  v-if="see" v-model.trim="password" placeholder="请输入密码"/>
+							<input type="text" value="" v-else v-model.trim="password" placeholder="请输入密码"/>
 						</view>
 						<image class="wh60 ml20" @click="seeEvt" v-if="see" src="/static/login/me_see.png" mode=""></image>
 						<image class="wh60 ml20" @click="seeEvt" v-else src="/static/login/see-no.png" mode=""></image>

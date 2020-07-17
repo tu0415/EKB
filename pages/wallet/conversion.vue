@@ -4,29 +4,46 @@
 			<view class="top-view"></view>
 		</view>
 		<Back :txt="'兑换'"></Back>
+		<view class="tab mb20" >
+			<view class="flex">
+				<view class="flex1 flex item pr f30" @click="tab(1)" :class="{ active: tabIndex == 1 }">
+					KB兑换USDT
+					<text class="line pb"></text>
+				</view>
+				<view class="flex1 flex item pr f30" @click="tab(2)" :class="{ active: tabIndex == 2 }">
+					KB兑换EKB
+					<text class="line pb"></text>
+				</view>
+			</view>
+		</view>
 		<view class="cont">
 			<view class="disJcsbAc mt30">
 				<view class="br20 bgcfff flex fwbold f40 box">
 					KB
 				</view>
 				<image class="wh60" src="/static/index/dh.png" mode=""></image>
-				<view class="br20 bgcfff flex fwbold f40 box">
+				<view class="br20 bgcfff flex fwbold f40 box" v-if="tabIndex == 1">
 					USDT
+				</view>
+				<view class="br20 bgcfff flex fwbold f40 box" v-if="tabIndex == 2">
+					EKB
 				</view>
 			</view>
 			<view class="mt20 mb20">
-				<text class="f26">兑换率: 1KB = {{proportion}}USDT</text>
+				<text class="f26" v-if="tabIndex == 1">兑换率: 1KB = {{proportion}}USDT</text>
+				<text class="f26" v-if="tabIndex == 2">兑换率: 1KB = {{ratio}}EKB</text>
 			</view>
 			<view class="f28 bgcfff br10 item flexAI mt20">
 				<text class="flexAI">兑换数量</text>
-				<input type="number" class="flex1 f28" v-model.trim="account" placeholder="请输入需兑换的数量" />
+				<input type="number" maxlength="9" class="flex1 f28" v-model.trim="account" placeholder="请输入需兑换的数量" />
 			</view>
 			<view class="f28 bgcfff br10 item flexJC mt20" style="padding-right: 0;" >
 				<view class="flexAI">
 					<text class="flexAI">兑换得到</text>
 					<input class="f28" type="number" v-model.trim="acquisition" placeholder="输入数量自动换算" />
 				</view>
-				<text class="flex" >USDT</text>
+				<text class="flex" v-if="tabIndex == 1" >USDT</text>
+				<text class="flex" v-if="tabIndex == 2" >EKB</text>
 			</view>
 			<view class="f28 bgcfff br10 item flexJC mt20" style="padding-right: 0;" >
 				<view class="flexAI">
@@ -47,10 +64,11 @@
 				<text class="flex c00FFBA" v-if="!sendTime" @click="getCode">发送验证码</text>
 				<text class="flex c00FFBA" v-else >{{time}}s重新获取</text>
 			</view>
-			<view class="btn-box" @click="getTransform">
-				<view class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60 cfff">
+			<view class="btn-box" >
+				<button :disabled="disabled"  class="btn f36 c021E34 bg00FFBA flex br45 h90 mt60 cfff" @click="getTransform">
 					确定
-				</view>
+				</button>
+				
 			</view>
 		</view>
 	</view>
@@ -71,7 +89,11 @@
 				sendTime: false, // 定时器,
 				service:"",
 				proportion:0,
-				dhBili:0
+				dhBili:0,
+				tabIndex:1,
+				ratio:0,
+				expend:0,
+				disabled:false,
 				// countData:0
 				
 			}
@@ -82,27 +104,44 @@
 		onLoad(e) {
 			this.proportion = JSON.parse(e.data).proportion
 			this.dhBili = JSON.parse(e.data).dhBili
+			this.ratio = JSON.parse(e.data).ratio
+			this.expend = JSON.parse(e.data).expend
+			
 		},
 		computed:{
 		    ...mapState(["address"]),
-			acquisition:{
-				get() {
+			acquisition(){
+				if(this.tabIndex == 1) {
 					return this.proportion * this.account
-				},
-				set(v) {
-				    this.countData = v
+				} else if(this.tabIndex == 2) {
+					return this.ratio * this.account
 				}
 				
+				
 			},
+			
 			getNum() {
-				return Number(this.account * this.dhBili / 100)
-			}
+				if(this.tabIndex == 1) {
+					return Number(this.account * this.dhBili / 100)
+				} else  if(this.tabIndex == 2) {
+					console.log(11)
+					return Number(this.account * this.expend / 100)
+				}
+			},
+			
+			
 		 },
 		onShow() {
 			this.walletAddress = this.address
 		},
 		
 		methods: {
+			tab(index) {
+				this.tabIndex = index;
+				this.account = ''
+				this.smsCode= ''
+				this.password = ''
+			},
 			// 验证码倒计时
 			send() {
 				this.sendTime = true;
@@ -157,22 +196,47 @@
 					payPwd: this.password, // 支付密码
 					card: this.smsCode,
 				}
-				this.$http.questToken(this.$API.wellet.exchange, 'post', parameter).then(res => {
-					if (res.code == 200) {
-						uni.showToast({title: res.msg,icon: 'none'});
-						setTimeout(()=>{uni.switchTab({
-							url:'/pages/index/index'
-						})},1000)
-						this.password= ''
-						this.smsCode= ''
-						this.account= ''
-					} else {
-						uni.showToast({
-							title: res.msg,
-							icon: 'none'
-						});
-					}
-				})
+				this.disabled= true
+				if(this.tabIndex == 1) {
+					this.$http.questToken(this.$API.wellet.exchange, 'post', parameter).then(res => {
+						if (res.code == 200) {
+							uni.showToast({title: res.msg,icon: 'none'});
+							setTimeout(()=>{uni.switchTab({
+								url:'/pages/index/index'
+							})},1000)
+							this.password= ''
+							this.smsCode= ''
+							this.account= ''
+						} else {
+							uni.showToast({
+								title: res.msg,
+								icon: 'none'
+							});
+						}
+						this.disabled= false
+					})
+					
+				} else if(this.tabIndex == 2) {
+					this.$http.questToken(this.$API.wellet.moneyDuiHuan, 'post', parameter).then(res => {
+						if (res.code == 200) {
+							uni.showToast({title: res.msg,icon: 'none'});
+							setTimeout(()=>{uni.switchTab({
+								url:'/pages/index/index'
+							})},1000)
+							this.password= ''
+							this.smsCode= ''
+							this.account= ''
+						} else {
+							uni.showToast({
+								title: res.msg,
+								icon: 'none'
+							});
+						}
+						this.disabled= false
+					})
+					
+				}
+				
 			},
 			
 			// getAsset() {
@@ -188,9 +252,9 @@
 			// },
 			onKeyInput(event) {
 				let i = event.target.value;
-				let num = i.charAt(i.length - 1);
+				// let num = i.charAt(i.length - 1);
 				var reg = new RegExp('^[0-9]*$');
-				if (!reg.test(num)) {
+				if (!reg.test(i)) {
 					this.password =  '';
 				} else {
 					this.password = i;
@@ -205,6 +269,28 @@
 <style scoped lang="less">
 	page{
 		.conversion {
+			.tab {
+				.item {
+					height: 80rpx;
+					opacity: 0.5;
+					text {
+						width: 50rpx;
+						height: 6rpx;
+						background: #f1f1f1;
+						border-radius: 3rpx;
+						bottom: 0;
+						left: 50%;
+						transform: translateX(-50%);
+					}
+				}
+				.item.active {
+					color: #333333;
+					opacity: 1;
+					text {
+						background: #FE701A;
+					}
+				}
+			}
 			.cont {
 				padding: 0 30rpx;
 				.box {

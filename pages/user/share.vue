@@ -12,7 +12,7 @@
 			<text class="f50 fwbold cfff">{{invite}}</text>
 			<text class="f28 cfff mt40 mb20">扫描二维码免费注册</text>
 			<view class=" code">
-				<tki-qrcode cid="qrcode" ref="qrcode" :val="qrcode" onval :size="338" loadMake :showLoading="false" @result="result" />
+				<tki-qrcode cid="qrcode" ref="qrcode"  :val="qrcode" onval :size="338" loadMake :showLoading="false" @result="result" />
 			</view>
 			
 			<view class="flex">
@@ -38,6 +38,8 @@
 			return {
 				qrcode: '',
 				invite:'',
+				// result:
+				
 			}
 		},
 		components: {
@@ -50,6 +52,7 @@
 		methods: {
 			result(e) {
 				this.qrImg = e
+				console.log(e)
 			},
 
 			save() {
@@ -107,7 +110,6 @@
 			},
 			getShare() {
 				this.$http.questToken(this.$API.user.yaoQingF, "post").then(res => {
-					console.log(res)
 					if (res.code == 200) {
 						this.invite = res.data.code
 						this.qrcode = res.data.qrcode 

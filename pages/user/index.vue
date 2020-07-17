@@ -20,11 +20,11 @@
 				</view>
 				<view class="flexAI flexdcolumn flex1" @click="pushPage('/pages/user/myEarnings',1)" >
 					<image class="wh48" src="/static/user/wdsy@2x.png" mode=""></image>
-					<text class="f28 mt20">我的收益</text>
+					<text class="f28 mt20">我的KB</text>
 				</view>
 				<view class="flexAI flexdcolumn flex1" @click="pushPage('/pages/user/team',1)" >
 					<image class="wh48" src="/static/user/wdtd.png" mode=""></image>
-					<text class="f28 mt20">我的团队</text>
+					<text class="f28 mt20">我的商圈</text>
 				</view>
 				<view class="flexAI flexdcolumn flex1" @click="pushPage('/pages/user/share',1)" >
 					<image class="wh48" src="/static/user/wyfx.png" mode=""></image>

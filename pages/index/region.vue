@@ -18,15 +18,15 @@
 				<view class="flex count-number">
 					<view class="flexAI flexdcolumn flex1">
 						<text class="f32 ">{{ item.licaiName }}</text>
-						<text class="f26 opacity5 mt30">投资(USDT)</text>
+						<text class="f26 opacity5 mt30">消费(USDT)</text>
 					</view>
 					<view class="flexAI flexdcolumn flex1">
 						<text class="f32 ">{{ item.beishu }}倍</text>
-						<text class="f26 opacity5 mt30">收益倍数</text>
+						<text class="f26 opacity5 mt30">赠送倍数</text>
 					</view>
 					<view class="flexAI flexdcolumn flex1">
 						<text class="f32 ">{{ item.riBili }}</text>
-						<text class="f26 opacity5 mt30">日收益率</text>
+						<text class="f26 opacity5 mt30">日回馈率</text>
 					</view>
 				</view>
 			</view>

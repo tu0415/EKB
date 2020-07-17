@@ -2,15 +2,15 @@
 	<view class=" h100 ">
 		<view class="status_bar "><view class="top-view "></view></view>
 		<view class="tops ">
-			<Back :txt="'我的收益'"></Back>
+			<Back :txt="'我的KB'"></Back>
 			<view class="tab mb20">
 				<view class="flex">
 					<view class="flex1 flex item pr f30" @click="tab(1)" :class="{ active: tabIndex == 1 }">
-						静态收益
+						消费回馈
 						<text class="line pb"></text>
 					</view>
 					<view class="flex1 flex item pr f30" @click="tab(2)" :class="{ active: tabIndex == 2 }">
-						动态收益
+						分享回馈
 						<text class="line pb"></text>
 					</view>
 				</view>

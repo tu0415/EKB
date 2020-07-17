@@ -106,7 +106,9 @@ export default {
 			ekbSXF:'',
 			isZhuanJkc:'',
 			zzBili:'',
-			dhBili:''
+			dhBili:'',
+			ratio:'',
+			expend:''
 		};
 	},
 	components: {
@@ -160,7 +162,7 @@ export default {
 			} else {uni.showToast({title:'暂未开放',icon:none})}
 		},
 		goConversion() {if(this.isDuihuan == 1) {
-				this.pushPage('/pages/wallet/conversion?data=',{proportion:this.proportion,dhBili:this.dhBili},1)
+				this.pushPage('/pages/wallet/conversion?data=',{proportion:this.proportion,dhBili:this.dhBili,ratio:this.ratio,expend:this.expend},1)
 			} else {uni.showToast({title:'暂未开放',icon:none})}
 		},
 		getData() {
@@ -179,6 +181,8 @@ export default {
 					this.proportion = res.data.duihuanbili
 					this.zzBili = res.data.zzBili
 					this.dhBili = res.data.dhBili
+					this.ratio = res.data.kbDHekbBili
+					this.expend = res.data.kbDHekbSxfBili
 					
 				} else {
 					uni.showToast({

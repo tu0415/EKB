@@ -81,9 +81,9 @@
 						</view>
 					</view>
 				</view>
-				<view class="btn br10 f32 c000  flex h88 mr30 ml30 mt60 cfff bg00FFBA" @click="payEvt">
+				<button :disabled="disabled" class="btn br10 f32 c000  flex h88 mr30 ml30 mt60 cfff bg00FFBA" @click="payEvt">
 					确认
-				</view>
+				</button>
 			</view>
 					
 		</unipopup>
@@ -104,7 +104,8 @@ export default {
 			addres:{},
 			info:{},
 			buyMessage:"",
-			manageId:''
+			manageId:'',
+			disabled:false
 		};
 	},
 	watch: {
@@ -156,7 +157,7 @@ export default {
 							icon:'none'
 						})
 						setTimeout(()=>{
-							this.pushPage('/pages/user/address',1)
+							this.pushPage('/pages/user/addSite?data=',{isPayadd:1},1)
 						},1000)
 					}
 					this.info = res.data.goods
@@ -177,6 +178,7 @@ export default {
 				buyNum:this.info.buyNum,
 				licai_Id:this.manageId
 			}
+			this.disabled = true
 			this.$http.questToken(this.$API.index.buyManagement,'post',data).then(res=>{
 				if(res.code == 200) {
 					this.$refs.shade.close()
@@ -191,6 +193,7 @@ export default {
 						icon:'none'
 					})
 				}
+				this.disabled = false
 			})
 		}
 	}

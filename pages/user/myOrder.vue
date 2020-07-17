@@ -40,7 +40,7 @@
 						<view class="disFlex flexdcolumn ">
 							<text class="f28">{{item.name}}</text>
 							<!-- <view class="beam f22 flex br3 bgFFECE5 cFF3C3C num m120 mb10 mt10">赠 69.00</view> -->
-							<text class="f28 cFF3C3C">￥{{item.price}}</text>
+							<text class="f28 cFF3C3C">${{item.price}}</text>
 						</view>
 					</view>
 					<text class="flex pb40" style="align-items: flex-end;">X{{item.buyNum}}</text>
@@ -54,7 +54,7 @@
 					<view class="flexAI">
 						<text>共 {{item.buyNum}} 件</text>
 						<view class="ml20">
-							合计:<text class="cFF4444 ml20 ">￥{{item.sumMoney}}</text>
+							合计:<text class="cFF4444 ml20 ">${{item.sumMoney}}</text>
 						</view>
 					</view>
 				</view>

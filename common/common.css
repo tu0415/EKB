@@ -34,6 +34,11 @@
 	justify-content: space-around;
 }
 
+.flexWrap{
+	flex-wrap: wrap;
+}
+
+
 .flexdcolumn {
 	flex-direction: column;
 }

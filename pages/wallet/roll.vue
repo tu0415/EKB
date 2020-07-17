@@ -226,7 +226,7 @@
 				}
 				this.disabled = true
 				this.$http.questToken(this.$API.wellet.tibiMethod, 'post', parameter).then(res => {
-					this.disabled = false
+					
 					if (res.code == 200) {
 						uni.showToast({title:res.msg,icon:'none'})
 						setTimeout(()=>{uni.switchTab({
@@ -242,6 +242,7 @@
 							icon:'none'
 						})
 					}
+					this.disabled = false
 				},error =>{
 					
 				})

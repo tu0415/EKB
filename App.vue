@@ -26,7 +26,7 @@
 				
 				let data = {
 					// #ifdef APP-PLUS
-					version: '1.0.3',
+					version: '1.0.1',
 					os: plus.os.name === 'iOS' ? 1 : 2,
 					// #endif
 				}
@@ -75,4 +75,8 @@
 	@import './common/common.css';
 	@import './common/top.css';
 	@import './components/parse/parse.css';
+	uni-button[disabled]:not([type]), uni-button[disabled][type=default] {
+	    color: #021E34;
+	    background-color: #E5E5E5;
+	}
 </style>
