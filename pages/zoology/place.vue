@@ -59,7 +59,7 @@
 				<image  @click="close" class="wh32 close pb" src="/static/user/Popup_close.png"></image>
 				<text class="f30">请输入支付密码</text>
 				<view class="pwd-box pr flex mt30">
-					<input  type="password pb" ref="pwd" focus="false" class="pwd" v-model="msg" maxlength="6" />
+					<input  type="password pb" ref="pwd"  class="pwd" v-model="msg" maxlength="6" />
 					<view class="pwd-wrap pb flex ">
 						<view class="list-num flex flex1">
 							<view v-if="msgLength > 0" class="dot flex"></view>

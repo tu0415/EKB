@@ -18,7 +18,7 @@
 				<view class="login-box f30 ">
 					<view class="flexAI item-input bdde5">
 						<text class="flexAI">手机号</text>
-						<input type="number" focus v-model.trim="phone" value="" placeholder="请输入手机号" />
+						<input type="number"  v-model.trim="phone" value="" placeholder="请输入手机号" />
 					</view>
 					<view class="disJcsbAc item-input bdde5 pr">
 						<view class="flexAI" style="height: 100%;">
